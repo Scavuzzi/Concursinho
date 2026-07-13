@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Painel de Estudos
+GenericName=Pomodoro e checklist de PDFs
+Comment=Painel desktop para estudar PDFs de concurso com Pomodoro e progresso
+Exec="/home/mudkip/Documentos/Meu Universo de Conhecimento/Projetos/Estudos/Concursinho/run.sh"
+Path=/home/mudkip/Documentos/Meu Universo de Conhecimento/Projetos/Estudos/Concursinho
+Icon=/home/mudkip/Documentos/Meu Universo de Conhecimento/Projetos/Estudos/Concursinho/assets/app-icon.png
+Terminal=false
+Categories=Education;
+StartupNotify=true
+StartupWMClass=ConcursinhoPomodoro
+Keywords=concurso;estudos;pomodoro;pdf;
