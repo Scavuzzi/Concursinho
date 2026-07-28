@@ -1,6 +1,14 @@
 __pycache__/
 *.pyc
+.env
+.venv/
+venv/
 config.json
 historico.json
 progresso.json
+*.json.bak
+*.json.tmp
 tray.log
+Materiais/
+Codigo/
+.audit-runtime/
