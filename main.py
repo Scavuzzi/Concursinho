@@ -2,6 +2,7 @@ import json
 import os
 import re
 import shlex
+import shutil
 import subprocess
 import sys
 import threading
@@ -28,7 +29,7 @@ ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
 
 BASE_PATH = Path(__file__).resolve().parent
-MATERIAIS_PATH = BASE_PATH / "Materiais"
+ENV_FILE = BASE_PATH / ".env"
 PROGRESSO_FILE = BASE_PATH / "progresso.json"
 CONFIG_FILE = BASE_PATH / "config.json"
 HISTORY_FILE = BASE_PATH / "historico.json"
@@ -38,11 +39,39 @@ APP_ICON_FILE = ASSETS_PATH / "app-icon.png"
 TRAY_ICON_FILE = ASSETS_PATH / "tray-icon.png"
 TRAY_HELPER_FILE = BASE_PATH / "tray_helper.py"
 
+
+def load_local_env(path: Path) -> None:
+    if not path.exists():
+        return
+
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except Exception:
+        return
+
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#") or "=" not in stripped:
+            continue
+
+        key, value = stripped.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if key:
+            os.environ.setdefault(key, value)
+
+
+load_local_env(ENV_FILE)
+
+
 DEFAULT_CONFIG = {
     "focus_minutes": 25,
     "break_minutes": 5,
-    "pdf_command": "xdg-open {file}",
+    "pdf_command": "auto",
+    "materials_path": str(BASE_PATH / "Materiais"),
 }
+
+AUTO_PDF_COMMANDS = {"", "auto", "default", "sistema", "xdg-open {file}"}
 
 THEME = {
     "bg": "#1a1b26",
@@ -67,19 +96,45 @@ THEME = {
 
 
 def read_json(path: Path, fallback):
-    if not path.exists():
-        return fallback
+    backup_path = path.with_name(f"{path.name}.bak")
+    for candidate in (path, backup_path):
+        if not candidate.exists():
+            continue
 
-    try:
-        with path.open("r", encoding="utf-8") as file:
-            return json.load(file)
-    except Exception:
-        return fallback
+        try:
+            with candidate.open("r", encoding="utf-8") as file:
+                return json.load(file)
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            continue
+
+    return fallback
 
 
 def write_json(path: Path, data) -> None:
-    with path.open("w", encoding="utf-8") as file:
-        json.dump(data, file, ensure_ascii=False, indent=4)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = path.with_name(f"{path.name}.tmp")
+    backup_path = path.with_name(f"{path.name}.bak")
+
+    try:
+        with temp_path.open("w", encoding="utf-8") as file:
+            json.dump(data, file, ensure_ascii=False, indent=4)
+            file.flush()
+            os.fsync(file.fileno())
+
+        if path.exists():
+            try:
+                with path.open("r", encoding="utf-8") as current_file:
+                    json.load(current_file)
+                shutil.copy2(path, backup_path)
+            except (OSError, UnicodeError, json.JSONDecodeError):
+                pass
+
+        os.replace(temp_path, path)
+    finally:
+        try:
+            temp_path.unlink(missing_ok=True)
+        except OSError:
+            pass
 
 
 def log_tray(message: str) -> None:
@@ -363,17 +418,21 @@ class ConfigManager:
     def load(self) -> dict:
         data = read_json(CONFIG_FILE, {})
         config = DEFAULT_CONFIG | data
+        env_materials_path = os.environ.get("CONCURSINHO_MATERIAIS_PATH", "").strip()
+        if env_materials_path:
+            config["materials_path"] = env_materials_path
         config["focus_minutes"] = self.coerce_minutes(config.get("focus_minutes"), DEFAULT_CONFIG["focus_minutes"])
         config["break_minutes"] = self.coerce_minutes(config.get("break_minutes"), DEFAULT_CONFIG["break_minutes"])
-        if not str(config.get("pdf_command", "")).strip():
-            config["pdf_command"] = DEFAULT_CONFIG["pdf_command"]
+        config["pdf_command"] = self.normalize_pdf_command(config.get("pdf_command"))
+        config["materials_path"] = self.normalize_path(config.get("materials_path"))
         return config
 
-    def save(self, focus_minutes: int, break_minutes: int, pdf_command: str) -> None:
+    def save(self, focus_minutes: int, break_minutes: int, pdf_command: str, materials_path: str) -> None:
         self.values = {
             "focus_minutes": self.coerce_minutes(focus_minutes, DEFAULT_CONFIG["focus_minutes"]),
             "break_minutes": self.coerce_minutes(break_minutes, DEFAULT_CONFIG["break_minutes"]),
-            "pdf_command": pdf_command.strip() or DEFAULT_CONFIG["pdf_command"],
+            "pdf_command": self.normalize_pdf_command(pdf_command),
+            "materials_path": self.normalize_path(materials_path),
         }
         write_json(CONFIG_FILE, self.values)
 
@@ -384,6 +443,18 @@ class ConfigManager:
         except (TypeError, ValueError):
             return fallback
         return max(1, min(minutes, 180))
+
+    @staticmethod
+    def normalize_path(value) -> str:
+        path_text = str(value or "").strip() or DEFAULT_CONFIG["materials_path"]
+        return str(Path(path_text).expanduser())
+
+    @staticmethod
+    def normalize_pdf_command(value) -> str:
+        command = str(value or "").strip()
+        if command.casefold() in AUTO_PDF_COMMANDS:
+            return DEFAULT_CONFIG["pdf_command"]
+        return command
 
 
 class HistoryManager:
@@ -456,7 +527,8 @@ class StudyManager:
         re.IGNORECASE,
     )
 
-    def __init__(self) -> None:
+    def __init__(self, materials_path: Path) -> None:
+        self.materials_path = materials_path
         self.completed = self.load_progress()
         self.structure = self.scan_materials()
 
@@ -468,11 +540,11 @@ class StudyManager:
         write_json(PROGRESSO_FILE, sorted(self.completed))
 
     def scan_materials(self) -> dict[str, list[PdfItem]]:
-        if not MATERIAIS_PATH.exists():
+        if not self.materials_path.exists():
             return {}
 
         structure = {}
-        for folder in sorted(MATERIAIS_PATH.iterdir(), key=lambda item: item.name.casefold()):
+        for folder in sorted(self.materials_path.iterdir(), key=lambda item: item.name.casefold()):
             if not folder.is_dir():
                 continue
 
@@ -562,9 +634,9 @@ class PomodoroApp(ctk.CTk):
 
         self.config_manager = ConfigManager()
         self.history = HistoryManager()
-        self.sm = StudyManager()
+        self.sm = StudyManager(Path(self.config_manager.values["materials_path"]))
         self.selected_subject = next(iter(self.sm.structure), None)
-        self.subject_buttons: dict[str, ctk.CTkButton] = {}
+        self.subject_buttons: dict[str, ctk.CTkFrame] = {}
 
         self.focus_seconds = self.config_manager.values["focus_minutes"] * 60
         self.break_seconds = self.config_manager.values["break_minutes"] * 60
@@ -580,6 +652,7 @@ class PomodoroApp(ctk.CTk):
         self.focus_var = ctk.StringVar(value=str(self.config_manager.values["focus_minutes"]))
         self.break_var = ctk.StringVar(value=str(self.config_manager.values["break_minutes"]))
         self.command_var = ctk.StringVar(value=self.config_manager.values["pdf_command"])
+        self.materials_var = ctk.StringVar(value=self.config_manager.values["materials_path"])
 
         self.configure(fg_color=THEME["bg"])
         self.title(f"{self.format_time()} Foco | {APP_NAME}")
@@ -793,9 +866,9 @@ class PomodoroApp(ctk.CTk):
 
         self.next_open_button = ctk.CTkButton(
             self.next_card,
-            text="Abrir",
-            width=86,
-            command=self.open_recommended,
+            text="Estudar agora",
+            width=118,
+            command=self.study_recommended,
             **self.button_options("primary"),
         )
         self.next_open_button.grid(row=0, column=1, rowspan=3, padx=(8, 14), pady=14, sticky="e")
@@ -880,7 +953,7 @@ class PomodoroApp(ctk.CTk):
 
         self.subject_summary = ctk.CTkLabel(
             self.header,
-            text="Adicione PDFs em ./Materiais para começar.",
+            text="Configure a pasta dos PDFs para começar.",
             text_color=THEME["muted"],
             anchor="w",
             justify="left",
@@ -1002,17 +1075,18 @@ class PomodoroApp(ctk.CTk):
         self.add_setting_row(container, 1, "Foco (min)", self.focus_var)
         self.add_setting_row(container, 2, "Pausa (min)", self.break_var)
         self.add_setting_row(container, 3, "Comando PDF", self.command_var)
+        self.add_setting_row(container, 4, "Pasta dos PDFs", self.materials_var)
 
         hint = ctk.CTkLabel(
             container,
-            text='Use {file} no comando. Exemplos: xdg-open {file}, zathura {file}, code {file}',
+            text='Use "auto" para abrir com o app padrao do sistema. Comando customizado aceita {file}.',
             text_color=THEME["muted"],
             anchor="w",
         )
-        hint.grid(row=4, column=0, columnspan=2, padx=18, pady=(4, 12), sticky="ew")
+        hint.grid(row=5, column=0, columnspan=2, padx=18, pady=(4, 12), sticky="ew")
 
         self.settings_status = ctk.CTkLabel(container, text="", text_color=THEME["lavender"], anchor="w")
-        self.settings_status.grid(row=5, column=0, padx=18, pady=(0, 18), sticky="ew")
+        self.settings_status.grid(row=6, column=0, padx=18, pady=(0, 18), sticky="ew")
 
         save_button = ctk.CTkButton(
             container,
@@ -1020,7 +1094,7 @@ class PomodoroApp(ctk.CTk):
             command=self.save_settings,
             **self.button_options("primary"),
         )
-        save_button.grid(row=5, column=1, padx=18, pady=(0, 18), sticky="e")
+        save_button.grid(row=6, column=1, padx=18, pady=(0, 18), sticky="e")
 
         desktop_card = ctk.CTkFrame(
             self.settings_tab,
@@ -1081,21 +1155,40 @@ class PomodoroApp(ctk.CTk):
 
             done, total, percent = self.sm.subject_stats(subject)
             selected = subject == self.selected_subject
-            button = ctk.CTkButton(
+            card = ctk.CTkFrame(
                 self.subject_list,
-                text=f"{subject}\n{done}/{total} concluídos  |  {percent:.0%}",
-                anchor="w",
-                height=62,
                 corner_radius=8,
                 border_width=1,
                 border_color=THEME["lavender"] if selected else THEME["border"],
                 fg_color=THEME["purple"] if selected else THEME["panel"],
-                hover_color=THEME["card_hover"],
-                text_color=THEME["bg"] if selected else THEME["text"],
-                command=lambda item=subject: self.select_subject(item),
             )
-            button.grid(sticky="ew", padx=4, pady=4)
-            self.subject_buttons[subject] = button
+            card.grid(sticky="ew", padx=4, pady=4)
+            card.grid_columnconfigure(0, weight=1)
+
+            title = ctk.CTkLabel(
+                card,
+                text=subject,
+                font=ctk.CTkFont(size=13, weight="bold" if selected else "normal"),
+                text_color=THEME["bg"] if selected else THEME["text"],
+                anchor="w",
+                justify="left",
+                wraplength=230,
+            )
+            title.grid(row=0, column=0, padx=12, pady=(10, 0), sticky="ew")
+
+            meta = ctk.CTkLabel(
+                card,
+                text=f"{done}/{total} concluídos  |  {percent:.0%}",
+                text_color=THEME["bg"] if selected else THEME["lavender"],
+                anchor="w",
+                justify="left",
+            )
+            meta.grid(row=1, column=0, padx=12, pady=(0, 10), sticky="ew")
+
+            for widget in (card, title, meta):
+                widget.bind("<Button-1>", lambda _event, item=subject: self.select_subject(item))
+
+            self.subject_buttons[subject] = card
 
         done, total, percent = self.sm.overall_stats()
         self.overall_progress.set(percent)
@@ -1114,7 +1207,7 @@ class PomodoroApp(ctk.CTk):
     def refresh_header(self) -> None:
         if not self.selected_subject:
             self.subject_title.configure(text="Nenhuma disciplina encontrada")
-            self.subject_summary.configure(text="Coloque os PDFs dentro de subpastas em Materiais.")
+            self.subject_summary.configure(text="Coloque os PDFs dentro de subpastas da pasta configurada.")
             self.subject_progress.set(0)
             self.subject_percent.configure(text="0%")
             return
@@ -1132,21 +1225,21 @@ class PomodoroApp(ctk.CTk):
         self.recommended_pdf = self.sm.next_recommended(self.selected_subject) or self.sm.next_recommended()
         if not self.recommended_pdf:
             self.next_title.configure(text="Tudo concluído por aqui")
-            self.next_meta.configure(text="Sem pendências encontradas na pasta Materiais.")
-            self.next_open_button.configure(state="disabled")
+            self.next_meta.configure(text="Sem pendências encontradas na pasta configurada.")
+            self.update_recommended_button()
             return
 
         pdf = self.recommended_pdf
         self.next_title.configure(text=f"{pdf.subject}  |  {pdf.title}")
         self.next_meta.configure(text=pdf.meta)
-        self.next_open_button.configure(state="normal")
+        self.update_recommended_button()
 
     def refresh_pdf_list(self) -> None:
         for widget in self.pdf_list.winfo_children():
             widget.destroy()
 
         if not self.selected_subject:
-            self.add_empty_label(self.pdf_list, "Nenhum PDF encontrado em Materiais.")
+            self.add_empty_label(self.pdf_list, "Nenhum PDF encontrado na pasta configurada.")
             return
 
         query = self.pdf_search_var.get().strip()
@@ -1273,27 +1366,62 @@ class PomodoroApp(ctk.CTk):
         self.sm.save_progress()
         self.refresh_screen()
 
-    def open_recommended(self) -> None:
-        if getattr(self, "recommended_pdf", None):
-            self.open_pdf(self.recommended_pdf)
+    def update_recommended_button(self) -> None:
+        has_recommendation = getattr(self, "recommended_pdf", None) is not None
+        state = "normal" if has_recommendation and not self.timer_running else "disabled"
+        text = "Foco em andamento" if self.timer_running else "Estudar agora"
+        self.next_open_button.configure(state=state, text=text)
 
-    def open_pdf(self, pdf: PdfItem) -> None:
+    def study_recommended(self) -> None:
+        pdf = getattr(self, "recommended_pdf", None)
+        if pdf is None or self.timer_running:
+            return
+
+        if not self.open_pdf(pdf):
+            return
+
+        self.selected_subject = pdf.subject
+        self.current_mode = "Foco"
+        self.time_left = self.focus_seconds
+        self.refresh_screen()
+        self.start_timer()
+
+    def open_path_with_default_app(self, path: Path) -> None:
+        if sys.platform.startswith("win"):
+            os.startfile(str(path))  # type: ignore[attr-defined]
+            return
+
+        command = "open" if sys.platform == "darwin" else "xdg-open"
+        subprocess.Popen([command, str(path)], cwd=BASE_PATH)
+
+    def build_pdf_command_args(self, command: str, path: Path) -> list[str]:
+        args = shlex.split(command)
+        path_text = str(path)
+        if any("{file}" in arg for arg in args):
+            return [arg.replace("{file}", path_text) for arg in args]
+        return args + [path_text]
+
+    def open_pdf(self, pdf: PdfItem) -> bool:
         command = self.config_manager.values["pdf_command"]
-        path_text = str(pdf.path)
         try:
-            if "{file}" in command:
-                args = shlex.split(command.format(file=path_text))
+            if command.casefold() in AUTO_PDF_COMMANDS:
+                self.open_path_with_default_app(pdf.path)
             else:
-                args = shlex.split(command) + [path_text]
-            subprocess.Popen(args, cwd=BASE_PATH)
+                subprocess.Popen(self.build_pdf_command_args(command, pdf.path), cwd=BASE_PATH)
+            return True
         except Exception:
             NotificationService.send("Não consegui abrir o PDF", pdf.path.name)
+            return False
 
     def save_settings(self) -> None:
         focus = ConfigManager.coerce_minutes(self.focus_var.get(), DEFAULT_CONFIG["focus_minutes"])
         pause = ConfigManager.coerce_minutes(self.break_var.get(), DEFAULT_CONFIG["break_minutes"])
-        command = self.command_var.get().strip() or DEFAULT_CONFIG["pdf_command"]
-        self.config_manager.save(focus, pause, command)
+        command = ConfigManager.normalize_pdf_command(self.command_var.get())
+        materials_path = ConfigManager.normalize_path(self.materials_var.get())
+        previous_subject = self.selected_subject
+        self.config_manager.save(focus, pause, command, materials_path)
+        self.sm = StudyManager(Path(self.config_manager.values["materials_path"]))
+        self.selected_subject = previous_subject if previous_subject in self.sm.structure else next(iter(self.sm.structure), None)
         self.focus_seconds = focus * 60
         self.break_seconds = pause * 60
         if not self.timer_running:
@@ -1302,6 +1430,8 @@ class PomodoroApp(ctk.CTk):
         self.focus_var.set(str(focus))
         self.break_var.set(str(pause))
         self.command_var.set(command)
+        self.materials_var.set(self.config_manager.values["materials_path"])
+        self.refresh_screen()
         self.settings_status.configure(text="Configurações salvas.")
 
     def restore_window(self) -> None:
@@ -1395,6 +1525,7 @@ class PomodoroApp(ctk.CTk):
         if not self.timer_running:
             color = THEME["yellow"]
         self.tray.update(status, color)
+        self.update_recommended_button()
 
 
 if __name__ == "__main__":
