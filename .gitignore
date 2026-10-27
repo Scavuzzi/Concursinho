@@ -6,6 +6,7 @@ venv/
 config.json
 historico.json
 progresso.json
+tjpb-progresso.json
 *.json.bak
 *.json.tmp
 tray.log

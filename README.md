@@ -2,91 +2,89 @@
 
 Painel local para acompanhar PDFs de estudo e pomodoros.
 
-O botão **Estudar agora** seleciona a disciplina recomendada, abre o próximo PDF
-e inicia o Pomodoro em uma única ação. Enquanto houver uma sessão em andamento,
-ele fica bloqueado para não trocar a matéria contabilizada no meio do ciclo.
+O botao **Estudar agora** seleciona a disciplina recomendada, abre o proximo PDF
+e inicia o Pomodoro em uma unica acao.
 
 ## Organizacao recomendada
 
-- O codigo fica neste repositorio e vai para o GitHub.
-- Os materiais de estudo ficam fora do repositorio, de preferencia no vault do Obsidian.
+- O codigo fica fora do Obsidian, em `D:\Desktop\ESTUDO\Concursinho\App`.
+- Os materiais de estudo ficam no vault do Obsidian.
 - Cada PC configura o proprio caminho local dos PDFs em `.env` ou pela aba `Configuracoes` do app.
 - Estado local como `config.json`, `progresso.json`, `historico.json`, logs e ambiente virtual fica fora do Git.
-- Cada alteração de estado é gravada de forma atômica e mantém uma cópia `.bak` válida para recuperação automática.
-
-## Preparar ambiente
-
-```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-No Windows PowerShell:
-
-```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-
-Depois da preparação, também é possível iniciar com dois cliques em
-`Abrir Concursinho.cmd`.
-
-Na distribuição em `D:\Desktop\ESTUDO\Concursinho`, o aplicativo fica em
-`App` e os PDFs ficam na pasta irmã `Materiais`. O caminho relativo
-`..\Materiais` evita acoplar a execução a uma letra de unidade específica.
-
-O botão **Abrir caderno no Obsidian** abre a nota
-`Projetos/Estudos/Concursinho` no vault `Segundo Cérebro`. O Obsidian guarda
-anotações e revisões; conclusão de PDFs e Pomodoros continuam sendo controlados
-por este aplicativo.
 
 ## Configurar materiais
 
-Crie um arquivo `.env` a partir do exemplo:
+O arquivo `.env` deve apontar para a arvore de materiais no Obsidian:
 
 ```env
-CONCURSINHO_MATERIAIS_PATH=D:\Caminho\Do\Seu\Vault\Materiais
+CONCURSINHO_MATERIAIS_PATH=D:\Documents\Segundo Cérebro\Projetos\Estudos\Concursinho\Materiais
 ```
 
 A pasta configurada deve conter uma subpasta por disciplina, com os PDFs dentro.
 
 ## Abrir PDFs
 
-O comando padrao para abrir PDFs e `auto`. Nesse modo o app usa o programa padrao do sistema:
+O comando padrao para abrir PDFs e `auto`. Nesse modo o app usa o programa
+padrao do sistema:
 
 - Windows: abre com o app associado ao PDF.
 - Linux: usa `xdg-open`.
 - macOS: usa `open`.
 
-Se quiser forcar um leitor especifico, altere `Comando PDF` nas configuracoes. Use `{file}` onde o caminho do PDF deve entrar, por exemplo:
-
-```text
-zathura {file}
-```
-
 ## Rodar
 
-```bash
+```powershell
 python main.py
 ```
 
-No Linux, tambem da para usar:
-
-```bash
-./run.sh
-```
+Ou use `Abrir Concursinho.cmd`.
 
 ## Validar
 
-```bash
+```powershell
 python -m unittest -v test_main.py
 ```
 
-## Congelamento de manutenção
 
-As funcionalidades ficam congeladas de **22/07/2026 a 06/08/2026**. Nesse
-período, só justificam alteração falhas que impeçam abrir o aplicativo, abrir os
-PDFs, iniciar o foco ou salvar o progresso. Ideias de melhoria ficam para revisão
-após o período de uso real.
+## TJPB 2026 — Desenvolvimento de Sistemas
+
+A aba `TJPB 2026` abre por padrão e reúne o conteúdo deste concurso:
+
+- 146 tópicos do edital em 14 blocos, com busca, filtro e marcação de estudo;
+- nove provas anteriores, gabaritos definitivos separados e dois espelhos;
+- orientações para a discursiva, plano completo e fontes no Obsidian;
+- acesso ao edital retificado e à nota da retificação publicada em 26/10/2026;
+- início de foco TJPB usando o mesmo Pomodoro, com a disciplina registrada no histórico.
+
+Os 93 PDFs Dataprev foram retirados da biblioteca ativa em 26/10/2026 e preservados em `Arquivo - Dataprev 2024 - 2026-10-26`, ao lado de `Materiais` no Obsidian. As abas `Estudo` e `Revisão` continuam disponíveis para novos materiais. As provas não
+entram na recomendação automática de aulas; os gabaritos são abertos apenas
+pelo botão correspondente. Marcar uma prova como resolvida é independente de
+marcar os tópicos estudados.
+
+A pasta é localizada ao lado de `Concursinho` no cofre: a partir de
+`Estudos/Concursinho/Materiais`, o app procura `Estudos/TJPB 2026`.
+Se os arquivos estiverem em outro lugar, configure `CONCURSINHO_TJPB_PATH`
+no `.env`. Os caminhos absolutos antigos do manifesto de downloads são
+ignorados; os PDFs são localizados na pasta atual do cofre.
+
+Os arquivos permanecem no Obsidian. As marcações do app ficam em
+`tjpb-progresso.json`, fora do Git e separadas do progresso da biblioteca.
+As caixas das notas Markdown não são sincronizadas com essas marcações.
+O botão `Atualizar materiais` relê as notas e o catálogo sem redefinir o progresso.
+
+Validação da integração:
+
+```powershell
+python -m unittest -v test_main.py test_tjpb.py
+```
+
+
+## Android
+
+A pasta `mobile/` contém o aplicativo Android com os mesmos 146 tópicos e o
+acervo TJPB, leitor PDF integrado e modo Leitura com fontes e aparência
+ajustáveis. Não inclui os materiais Dataprev. A documentação de compilação,
+instalação e transferência manual de progresso está em [mobile/README.md](mobile/README.md).
+
+O desktop continua independente. O JSON de marcações tem o mesmo formato nos
+dois aplicativos; preferências do leitor e PDFs importados ficam no aparelho.

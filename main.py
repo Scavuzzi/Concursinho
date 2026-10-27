@@ -13,6 +13,8 @@ from pathlib import Path
 
 import customtkinter as ctk
 
+from tjpb import TjpbPanel
+
 try:
     from PIL import Image, ImageDraw, ImageFont, ImageTk
 except Exception:
@@ -34,6 +36,7 @@ ENV_FILE = BASE_PATH / ".env"
 PROGRESSO_FILE = BASE_PATH / "progresso.json"
 CONFIG_FILE = BASE_PATH / "config.json"
 HISTORY_FILE = BASE_PATH / "historico.json"
+TJPB_PROGRESS_FILE = BASE_PATH / "tjpb-progresso.json"
 TRAY_LOG_FILE = BASE_PATH / "tray.log"
 ASSETS_PATH = BASE_PATH / "assets"
 APP_ICON_FILE = ASSETS_PATH / "app-icon.png"
@@ -651,6 +654,7 @@ class PomodoroApp(ctk.CTk):
         self.time_left = self.focus_seconds
         self.timer_running = False
         self.current_mode = "Foco"
+        self.timer_subject = None
         self.tray = TrayIndicator(self)
         self.window_icon = None
 
@@ -834,11 +838,16 @@ class PomodoroApp(ctk.CTk):
 
         self.study_tab = self.tabs.add("Estudo")
         self.review_tab = self.tabs.add("Revisão")
+        self.tjpb_tab = self.tabs.add("TJPB 2026")
         self.settings_tab = self.tabs.add("Configurações")
 
         self.create_study_tab()
         self.create_review_tab()
         self.create_settings_tab()
+        self.tjpb_panel = TjpbPanel(
+            self, self.tjpb_tab, ctk, THEME, read_json, write_json, TJPB_PROGRESS_FILE
+        )
+        self.tabs.set("TJPB 2026")
 
     def create_study_tab(self) -> None:
         self.study_tab.grid_columnconfigure(0, weight=1)
@@ -1397,6 +1406,7 @@ class PomodoroApp(ctk.CTk):
             return
 
         self.selected_subject = pdf.subject
+        self.timer_subject = pdf.subject
         self.current_mode = "Foco"
         self.time_left = self.focus_seconds
         self.refresh_screen()
@@ -1449,6 +1459,7 @@ class PomodoroApp(ctk.CTk):
         self.materials_var.set(self.config_manager.values["materials_path"])
         self.refresh_screen()
         self.settings_status.configure(text="Configurações salvas.")
+        self.tjpb_panel.reload()
 
     def open_obsidian_notebook(self) -> None:
         webbrowser.open(OBSIDIAN_NOTE_URI)
@@ -1473,10 +1484,12 @@ class PomodoroApp(ctk.CTk):
             return
 
         self.timer_running = True
+        if getattr(self, "timer_subject", None) is None:
+            self.timer_subject = self.selected_subject
         self.start_button.configure(text="Rodando")
         self.set_timer_presence()
         if self.current_mode == "Foco" and self.time_left == self.focus_seconds:
-            subject = self.selected_subject or "sem disciplina selecionada"
+            subject = self.timer_subject or "sem disciplina selecionada"
             NotificationService.send("Foco iniciado", f"Sessão ativa em {subject}")
 
     def pause_timer(self) -> None:
@@ -1487,6 +1500,7 @@ class PomodoroApp(ctk.CTk):
     def reset_timer(self) -> None:
         self.timer_running = False
         self.current_mode = "Foco"
+        self.timer_subject = None
         self.time_left = self.focus_seconds
         self.start_button.configure(text="Iniciar")
         self.update_timer_visuals()
@@ -1503,7 +1517,8 @@ class PomodoroApp(ctk.CTk):
 
     def handle_timer_end(self) -> None:
         if self.current_mode == "Foco":
-            self.history.add_pomodoro(self.selected_subject, self.config_manager.values["focus_minutes"])
+            subject = getattr(self, "timer_subject", None) or self.selected_subject
+            self.history.add_pomodoro(subject, self.config_manager.values["focus_minutes"])
             NotificationService.send("Ciclo de foco terminado", "Hora de respirar. Pausa iniciada.")
             self.current_mode = "Pausa"
             self.time_left = self.break_seconds
@@ -1526,6 +1541,8 @@ class PomodoroApp(ctk.CTk):
     def update_clock_label(self) -> None:
         timer_text = self.format_time()
         self.clock_label.configure(text=timer_text)
+        if hasattr(self, "tjpb_panel"):
+            self.tjpb_panel.clock.configure(text=f"{timer_text} · {self.current_mode}")
         self.set_timer_presence(timer_text)
 
     def format_time(self) -> str:

@@ -1,0 +1,998 @@
+{
+  "title": "TJPB · Desenvolvimento de Sistemas",
+  "examDate": "2027-01-24",
+  "revision": "2026-10-26",
+  "topics": [
+    {
+      "id": "topic:5b64709700f530b30e26",
+      "group": "Língua Portuguesa",
+      "text": "Compreensão e interpretação de textos de gêneros variados; reconhecimento de tipos e gêneros textuais."
+    },
+    {
+      "id": "topic:fb523555f775075b9e07",
+      "group": "Língua Portuguesa",
+      "text": "Ortografia oficial."
+    },
+    {
+      "id": "topic:b2ba15f43e4ea629b9a1",
+      "group": "Língua Portuguesa",
+      "text": "Coesão textual: referenciação, substituição, repetição, conectores e sequenciação textual."
+    },
+    {
+      "id": "topic:1a9c284d87dd5f9becc7",
+      "group": "Língua Portuguesa",
+      "text": "Tempos e modos verbais."
+    },
+    {
+      "id": "topic:7367f905feff2e2fa784",
+      "group": "Língua Portuguesa",
+      "text": "Estrutura morfossintática do período e emprego das classes de palavras."
+    },
+    {
+      "id": "topic:c031ab709b4f1feb7863",
+      "group": "Língua Portuguesa",
+      "text": "Coordenação e subordinação entre orações e entre termos da oração."
+    },
+    {
+      "id": "topic:a19b0e063bfddf5e9c4b",
+      "group": "Língua Portuguesa",
+      "text": "Pontuação."
+    },
+    {
+      "id": "topic:0007a6a9e68c48681900",
+      "group": "Língua Portuguesa",
+      "text": "Concordância verbal e nominal."
+    },
+    {
+      "id": "topic:a84effa035a09442d798",
+      "group": "Língua Portuguesa",
+      "text": "Regência verbal e nominal."
+    },
+    {
+      "id": "topic:b5311f6cf12b3c2a7ef0",
+      "group": "Língua Portuguesa",
+      "text": "Crase."
+    },
+    {
+      "id": "topic:6c57d55acd33d922a95f",
+      "group": "Língua Portuguesa",
+      "text": "Colocação dos pronomes átonos."
+    },
+    {
+      "id": "topic:bc5562f4cb1748586459",
+      "group": "Língua Portuguesa",
+      "text": "Reescrita de frases e parágrafos; significação das palavras; substituição de palavras e trechos."
+    },
+    {
+      "id": "topic:03bc9a4c86258410567f",
+      "group": "Língua Portuguesa",
+      "text": "Reorganização de orações e períodos; reescrita em diferentes gêneros e níveis de formalidade."
+    },
+    {
+      "id": "topic:62d87e7dc9032157cc6d",
+      "group": "Língua Portuguesa",
+      "text": "Redação oficial."
+    },
+    {
+      "id": "topic:b96b34a91acd50924522",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Conjuntos numéricos."
+    },
+    {
+      "id": "topic:a55fbfadb7313dc00ec4",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Razões e proporções."
+    },
+    {
+      "id": "topic:f099bda6696f39c1ea36",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Regra de três simples e composta."
+    },
+    {
+      "id": "topic:cd99884c22bde4416022",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Porcentagem."
+    },
+    {
+      "id": "topic:d6e8ae1e246cc36f917a",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Juros simples e compostos."
+    },
+    {
+      "id": "topic:8c4772e433719f232833",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Equações, inequações e sistemas de equações."
+    },
+    {
+      "id": "topic:6c0b49048a448d0bdeb6",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Funções."
+    },
+    {
+      "id": "topic:280208c6c5c5a1082da2",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Sequências."
+    },
+    {
+      "id": "topic:4d755979cb57e856fafe",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Matrizes e determinantes."
+    },
+    {
+      "id": "topic:e7bd98d644e68380aca6",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Probabilidade."
+    },
+    {
+      "id": "topic:b05cc827c33593baf987",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Análise combinatória."
+    },
+    {
+      "id": "topic:46e04388ef855c844dea",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Estatística descritiva."
+    },
+    {
+      "id": "topic:a1b563dd0653aedd6866",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Proposições lógicas."
+    },
+    {
+      "id": "topic:4e6928f034e9e68a3e6a",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Conectivos."
+    },
+    {
+      "id": "topic:589918d1add63401ff0d",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Tabelas-verdade."
+    },
+    {
+      "id": "topic:c8e8a275f53009c214e8",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Equivalências e negações."
+    },
+    {
+      "id": "topic:980b3721aba7673bfc1a",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Argumentação lógica."
+    },
+    {
+      "id": "topic:ad6c3146fac59cf31781",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Diagramas lógicos."
+    },
+    {
+      "id": "topic:d1190aabcbdeb401f06d",
+      "group": "Raciocínio Lógico e Matemático",
+      "text": "Resolução de problemas de raciocínio lógico-matemático."
+    },
+    {
+      "id": "topic:902734b0d75dcfd9fe8d",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Arquitetura de computadores."
+    },
+    {
+      "id": "topic:1746a8c4ecde9a4c4c77",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Sistemas operacionais."
+    },
+    {
+      "id": "topic:c69ba8216c81be70a48a",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Redes de computadores e protocolos TCP/IP."
+    },
+    {
+      "id": "topic:4c1198fca1ad2c1d803a",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Bancos de dados e computação em nuvem."
+    },
+    {
+      "id": "topic:20528990c340d0c66a58",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Engenharia de software: ciclo de vida de sistemas, requisitos, arquitetura e integração de sistemas, Scrum e Kanban, qualidade e testes."
+    },
+    {
+      "id": "topic:03d94fcc776892b4c24a",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Segurança: confidencialidade, integridade e disponibilidade; controle de acesso; gestão de riscos e incidentes; continuidade de negócios."
+    },
+    {
+      "id": "topic:d4ad2528835d88d45b86",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "LGPD: Lei nº 13.709/2018."
+    },
+    {
+      "id": "topic:92e09c2e7efb8819c778",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Normas ISO/IEC 27001, 27002 e 27005."
+    },
+    {
+      "id": "topic:1ad101336d143400753b",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Governança e gestão de TI: COBIT 2019 e ITIL 4."
+    },
+    {
+      "id": "topic:efcdfe79564c5f610948",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Planejamento estratégico; gestão de projetos, processos e serviços de TI; indicadores de desempenho."
+    },
+    {
+      "id": "topic:3b787075aa538587eb04",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Contratações de soluções de TIC."
+    },
+    {
+      "id": "topic:03a11d3b4befa26c756d",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Gestão de dados e IA: modelagem e governança de dados; SQL; Business Intelligence; fundamentos de IA, aprendizado de máquina e IA generativa."
+    },
+    {
+      "id": "topic:a98533d48114a710c453",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Transformação digital no Judiciário: governo digital, automação de processos, interoperabilidade, PJe, PDPJ-Br e acessibilidade digital."
+    },
+    {
+      "id": "topic:7629b86f84d4da86f130",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Resoluções CNJ nº 370/2021, 396/2021, 468/2022 e 615/2025, com alterações."
+    },
+    {
+      "id": "topic:57f17492dadb5f092091",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "MoReq-Jus: gestão de processos e documentos do Poder Judiciário."
+    },
+    {
+      "id": "topic:ce5f6640ae7fc4c855cd",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Gestão documental arquivística digital: metadados, ciclo de vida, preservação e RDC-Arq."
+    },
+    {
+      "id": "topic:15c11633a92a137c222a",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Resolução CNJ nº 522/2023, com alterações."
+    },
+    {
+      "id": "topic:10d20bff6a648fdd695b",
+      "group": "Fundamentos de TI comuns a todas as especialidades",
+      "text": "Plano Diretor de Tecnologia da Informação do TJPB: PDTI 2024–2026."
+    },
+    {
+      "id": "topic:ed78364ef0d215154539",
+      "group": "Engenharia de software e práticas ágeis",
+      "text": "SDLC: fases e modelos tradicionais, cascata e iterativo."
+    },
+    {
+      "id": "topic:6cf31db80e7e50598802",
+      "group": "Engenharia de software e práticas ágeis",
+      "text": "Scrum: papéis, eventos e artefatos; Kanban e Lean."
+    },
+    {
+      "id": "topic:c8053167c5ba44137a33",
+      "group": "Engenharia de software e práticas ágeis",
+      "text": "Agilidade em escala: SAFe e práticas de agilidade organizacional."
+    },
+    {
+      "id": "topic:7541205f9393146a4866",
+      "group": "Engenharia de software e práticas ágeis",
+      "text": "Requisitos: elicitação, análise, especificação e validação."
+    },
+    {
+      "id": "topic:e32793131f0dbb71f851",
+      "group": "Engenharia de software e práticas ágeis",
+      "text": "Requisitos funcionais, não funcionais e regras de negócio."
+    },
+    {
+      "id": "topic:c6d05c8ccb626df64a54",
+      "group": "Engenharia de software e práticas ágeis",
+      "text": "Histórias de usuário, critérios de aceitação e gerenciamento de backlog."
+    },
+    {
+      "id": "topic:6363a6b7e95cf0f1205c",
+      "group": "Engenharia de software e práticas ágeis",
+      "text": "Análise de Pontos de Função (APF/IFPUG): conceitos, contagem e aplicações; métodos ágeis de estimativa."
+    },
+    {
+      "id": "topic:0e1525aee7c0b560dfa1",
+      "group": "Engenharia de software e práticas ágeis",
+      "text": "Desenvolvimento orientado a especificações (SDD): especificação executável e harness de engenharia assistida por IA."
+    },
+    {
+      "id": "topic:6cd934d7b307ffa71ce3",
+      "group": "Design de sistemas",
+      "text": "Abstração e modelagem de componentes de sistemas de grande escala."
+    },
+    {
+      "id": "topic:ad010b20c38905519b86",
+      "group": "Design de sistemas",
+      "text": "Trade-offs de sistemas distribuídos: latência e throughput; CAP; PACELC; BASE e ACID."
+    },
+    {
+      "id": "topic:9da319f7adc17513e702",
+      "group": "Design de sistemas",
+      "text": "Comunicação síncrona: HTTP/REST e gRPC; assíncrona: mensageria e WebSockets."
+    },
+    {
+      "id": "topic:c1369e96bd079dd6d9cb",
+      "group": "Design de sistemas",
+      "text": "Escalabilidade horizontal e vertical."
+    },
+    {
+      "id": "topic:3bdf5f57baf0829adc50",
+      "group": "Design de sistemas",
+      "text": "Alta disponibilidade: tolerância a falhas, failover, clustering, balanceamento de carga, replicação e sharding."
+    },
+    {
+      "id": "topic:5d5902bd6da765c1669b",
+      "group": "Design de sistemas",
+      "text": "Cache em camadas: cliente, CDN e aplicação; Redis, casos de uso e expiração."
+    },
+    {
+      "id": "topic:c48af2e2cddd4b3e9e08",
+      "group": "Design de sistemas",
+      "text": "Resiliência e controle de tráfego: circuit breaker e graceful degradation."
+    },
+    {
+      "id": "topic:67d2d0684448e992f399",
+      "group": "Design de sistemas",
+      "text": "Balanceadores de aplicação e proxies reversos: NGINX e HAProxy."
+    },
+    {
+      "id": "topic:166e0f4e629d2885005d",
+      "group": "Arquitetura de software e padrões",
+      "text": "Padrões GoF: criacionais, estruturais e comportamentais."
+    },
+    {
+      "id": "topic:4693e281aed3ded10bec",
+      "group": "Arquitetura de software e padrões",
+      "text": "Padrões de arquitetura corporativa; inversão de controle e injeção de dependência."
+    },
+    {
+      "id": "topic:deff6ef915ad8656aeb3",
+      "group": "Arquitetura de software e padrões",
+      "text": "SOA: web services RESTful e SOAP; APIs."
+    },
+    {
+      "id": "topic:8a296bf9b23e74cffb26",
+      "group": "Arquitetura de software e padrões",
+      "text": "Microsserviços: conceitos, decomposição, API gateway, service mesh e serverless."
+    },
+    {
+      "id": "topic:745115003420729db42d",
+      "group": "Arquitetura de software e padrões",
+      "text": "Arquitetura orientada a eventos: mensageria e publicação/assinatura; Kafka e RabbitMQ."
+    },
+    {
+      "id": "topic:0394f907d08023807db2",
+      "group": "Arquitetura de software e padrões",
+      "text": "Clean Architecture e Domain-Driven Design (DDD)."
+    },
+    {
+      "id": "topic:7a481ac3e84e3d7a713a",
+      "group": "Arquitetura de software e padrões",
+      "text": "Métricas: qualidade do código, cobertura, densidade de defeitos, MTTR, prazo de antecedência para alterações (lead time), frequência de liberação, bugs relatados e satisfação do usuário."
+    },
+    {
+      "id": "topic:3e4d9fd82c37d5bc0a2d",
+      "group": "Algoritmos e programação",
+      "text": "Complexidade de algoritmos e notação Big-O."
+    },
+    {
+      "id": "topic:972d52456c14f06b3606",
+      "group": "Algoritmos e programação",
+      "text": "Estruturas de dados: listas, pilhas, filas, árvores e tabelas hash."
+    },
+    {
+      "id": "topic:6084824af4ab5baeb79c",
+      "group": "Algoritmos e programação",
+      "text": "Algoritmos de busca e ordenação."
+    },
+    {
+      "id": "topic:661b4c0280c87d84033e",
+      "group": "Algoritmos e programação",
+      "text": "Orientação a objetos: classes, objetos, herança, polimorfismo, encapsulamento e abstração; SOLID."
+    },
+    {
+      "id": "topic:da4656d278924b851cd3",
+      "group": "Algoritmos e programação",
+      "text": "Java: Collections e Streams."
+    },
+    {
+      "id": "topic:ed9880b8483b9e05357c",
+      "group": "Algoritmos e programação",
+      "text": "Java moderno: lambdas, records, sealed classes, pattern matching, switch expressions e virtual threads."
+    },
+    {
+      "id": "topic:e4f3e3e8197c812b0eeb",
+      "group": "Algoritmos e programação",
+      "text": "Java EE/Jakarta EE; Spring Framework; Spring Boot; Hibernate/JPA."
+    },
+    {
+      "id": "topic:60416f030036be7780f9",
+      "group": "Algoritmos e programação",
+      "text": "JavaScript, TypeScript e Node.js."
+    },
+    {
+      "id": "topic:7b809e79332ef14b3f7a",
+      "group": "Algoritmos e programação",
+      "text": "Angular e React."
+    },
+    {
+      "id": "topic:a58f7b05778282608334",
+      "group": "Algoritmos e programação",
+      "text": "Python: sintaxe, tipos, estruturas de dados básicas; FastAPI e Django."
+    },
+    {
+      "id": "topic:0ba0ecb40ae4c4117b02",
+      "group": "Algoritmos e programação",
+      "text": "Dart: sintaxe, tipos, controle de fluxo, tratamento de erros e programação assíncrona."
+    },
+    {
+      "id": "topic:4adfec518a412ab0a505",
+      "group": "Algoritmos e programação",
+      "text": "Flutter: widgets, Stateless e Stateful Widgets e ciclo de vida."
+    },
+    {
+      "id": "topic:711d403631d7321df32a",
+      "group": "Algoritmos e programação",
+      "text": "Flutter: estado e reatividade com Provider, BLoC, Riverpod e Cubit."
+    },
+    {
+      "id": "topic:41ca6b30b234d791780f",
+      "group": "Algoritmos e programação",
+      "text": "Flutter: layout e interfaces responsivas com Material Design e Cupertino."
+    },
+    {
+      "id": "topic:57e9fc7096b15c8e77cc",
+      "group": "Algoritmos e programação",
+      "text": "Flutter: navegação, roteamento, parâmetros e rotas nomeadas."
+    },
+    {
+      "id": "topic:d34e497146fd34f55a7c",
+      "group": "Desenvolvimento mobile",
+      "text": "Ciclo de vida de aplicações Android e iOS."
+    },
+    {
+      "id": "topic:e31efdffbb325a4197cd",
+      "group": "Desenvolvimento mobile",
+      "text": "Persistência local: armazenamento seguro, SQLite, Room, Hive/Isar e preferências SharedPreferences/NSUserDefaults."
+    },
+    {
+      "id": "topic:58d4b804550a6e879c50",
+      "group": "Desenvolvimento mobile",
+      "text": "Segurança: armazenamento de credenciais, SSL Pinning e proteção contra engenharia reversa."
+    },
+    {
+      "id": "topic:27061c0f1e3c1a1b34ee",
+      "group": "Desenvolvimento mobile",
+      "text": "TLS/SSL e proteção de dados em repouso e em trânsito."
+    },
+    {
+      "id": "topic:c65e6157c399f205db59",
+      "group": "Desenvolvimento mobile",
+      "text": "Consumo de APIs RESTful e serialização/desserialização JSON."
+    },
+    {
+      "id": "topic:897498d082b0afc3ff80",
+      "group": "Desenvolvimento mobile",
+      "text": "Notificações push: Firebase Cloud Messaging."
+    },
+    {
+      "id": "topic:f8782f223a0151117be2",
+      "group": "Banco de dados e persistência",
+      "text": "Modelo relacional e álgebra relacional: relações, chaves, restrições, seleção, projeção, junção e operações de conjuntos."
+    },
+    {
+      "id": "topic:ebb6a61c3c7dd350a2fe",
+      "group": "Banco de dados e persistência",
+      "text": "Normalização: dependências funcionais; 1FN, 2FN e 3FN."
+    },
+    {
+      "id": "topic:6d587c6c2ffa527bd1ae",
+      "group": "Banco de dados e persistência",
+      "text": "SQL DML: SELECT, INSERT, UPDATE e DELETE."
+    },
+    {
+      "id": "topic:3ef2caab0eaf8a8d3474",
+      "group": "Banco de dados e persistência",
+      "text": "SQL DDL: CREATE, ALTER e DROP."
+    },
+    {
+      "id": "topic:94864f905f314a9961a9",
+      "group": "Banco de dados e persistência",
+      "text": "SQL DCL: GRANT e REVOKE; TCL: COMMIT, ROLLBACK e SAVEPOINT."
+    },
+    {
+      "id": "topic:fb2391e85bb98dd65977",
+      "group": "Banco de dados e persistência",
+      "text": "Subconsultas e agregações: GROUP BY e HAVING."
+    },
+    {
+      "id": "topic:35c2aa2e4c8e62f9fd01",
+      "group": "Banco de dados e persistência",
+      "text": "Views, triggers e stored procedures."
+    },
+    {
+      "id": "topic:7964eea181824b4d5b47",
+      "group": "Banco de dados e persistência",
+      "text": "Otimização: planos de execução, índices, estatísticas e particionamento."
+    },
+    {
+      "id": "topic:4116dee61d38ada987b8",
+      "group": "Banco de dados e persistência",
+      "text": "PostgreSQL, Oracle, MySQL/MariaDB e Microsoft SQL Server."
+    },
+    {
+      "id": "topic:53f3a5d8d47acdd90894",
+      "group": "Banco de dados e persistência",
+      "text": "NoSQL: chave-valor, documentos/MongoDB, colunares e grafos."
+    },
+    {
+      "id": "topic:52e490eaf128054950ef",
+      "group": "Banco de dados e persistência",
+      "text": "Bancos vetoriais e busca vetorial: embeddings, similaridade e índice vetorial."
+    },
+    {
+      "id": "topic:392e8d878b54d7ed60a1",
+      "group": "DevOps, infraestrutura como código e nuvem",
+      "text": "CI/CD: Jenkins, GitLab CI/CD e GitHub Actions."
+    },
+    {
+      "id": "topic:8d93f96435ed07ff0af2",
+      "group": "DevOps, infraestrutura como código e nuvem",
+      "text": "Git: branches, merge, Gitflow e Trunk-Based; GitOps."
+    },
+    {
+      "id": "topic:ae34c8139ecfe46bd69e",
+      "group": "DevOps, infraestrutura como código e nuvem",
+      "text": "Docker: imagens, Dockerfile, Docker Compose, volumes e redes."
+    },
+    {
+      "id": "topic:c41dee7111f64be7cba6",
+      "group": "DevOps, infraestrutura como código e nuvem",
+      "text": "Kubernetes: Pods, Deployments, Services, Ingress, ConfigMaps e Secrets."
+    },
+    {
+      "id": "topic:9bd2a4753cb455eb452a",
+      "group": "DevOps, infraestrutura como código e nuvem",
+      "text": "Nuvem: IaaS, PaaS e SaaS; implantação pública, privada e híbrida."
+    },
+    {
+      "id": "topic:38beeedf5cace1819f41",
+      "group": "DevOps, infraestrutura como código e nuvem",
+      "text": "Terraform: providers, módulos reutilizáveis e gerenciamento de state."
+    },
+    {
+      "id": "topic:800c276a4fa351be6804",
+      "group": "DevOps, infraestrutura como código e nuvem",
+      "text": "Observabilidade: ativos, disponibilidade, desempenho, métricas e alertas; Zabbix, Prometheus e Grafana."
+    },
+    {
+      "id": "topic:903cf5cde099972bfbd8",
+      "group": "DevOps, infraestrutura como código e nuvem",
+      "text": "Logs: coleta, retenção, centralização, indexação, correlação e análise; ELK Stack/OpenSearch."
+    },
+    {
+      "id": "topic:3fe61aa0b2ca7db3ba81",
+      "group": "DevOps, infraestrutura como código e nuvem",
+      "text": "Tracing distribuído e APM."
+    },
+    {
+      "id": "topic:99a6fc493eaf973895e2",
+      "group": "Inteligência artificial",
+      "text": "PLN: tokenização, stemming, lematização e remoção de stop words."
+    },
+    {
+      "id": "topic:c712445af5bb95b50ed6",
+      "group": "Inteligência artificial",
+      "text": "Representação de texto: TF-IDF e word embeddings."
+    },
+    {
+      "id": "topic:7814a35c461f2542d76b",
+      "group": "Inteligência artificial",
+      "text": "Arquitetura Transformer e grandes modelos de linguagem (LLMs)."
+    },
+    {
+      "id": "topic:672d975cf4b8ba189f1d",
+      "group": "Inteligência artificial",
+      "text": "Engenharia de prompt para desenvolvimento de software."
+    },
+    {
+      "id": "topic:d3b725dd4b8bcde8d09b",
+      "group": "Inteligência artificial",
+      "text": "Integração com APIs de IA: OpenAI e Hugging Face; orquestração com LangChain."
+    },
+    {
+      "id": "topic:848be59e8ee687e6c9aa",
+      "group": "Inteligência artificial",
+      "text": "Geração aumentada por recuperação (RAG)."
+    },
+    {
+      "id": "topic:faae04bc0a157b53c0aa",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "Desenvolvimento seguro: codificação segura, modelagem de ameaças e DevSecOps."
+    },
+    {
+      "id": "topic:5046ffa4530c0858bd35",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "OWASP Top 10: principais riscos de aplicações web."
+    },
+    {
+      "id": "topic:d3eb5479b5eb7568e872",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "Criptografia simétrica e assimétrica: AES, RSA e curvas elípticas; aplicações."
+    },
+    {
+      "id": "topic:2f9b3440e59ae89bdb15",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "Certificados digitais, PKI, ICP-Brasil e assinatura digital."
+    },
+    {
+      "id": "topic:a376e1859125d3367557",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "Segurança web/APIs: autenticação, autorização, controle de acesso e rate limiting."
+    },
+    {
+      "id": "topic:380820471586021cfd17",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "SAML 2.0, OAuth 2.0, OpenID Connect e JWT."
+    },
+    {
+      "id": "topic:7ee8aadaf88e744342bc",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "Segurança em IA: prompt injection, jailbreak e ataques adversariais."
+    },
+    {
+      "id": "topic:6eaa5f671d8e77a9688e",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "Validação e sanitização da saída de LLMs; vazamento de dados e contexto; postura de retenção zero."
+    },
+    {
+      "id": "topic:8254fc1be14d34536509",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "Testes unitários, de integração, funcionais, de sistema, de aceitação e de desempenho/carga."
+    },
+    {
+      "id": "topic:eb83e99370944d66ed42",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "Automação de testes e TDD."
+    },
+    {
+      "id": "topic:2224d71badc2c3b5f00c",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "Testes de segurança: SAST, DAST e IAST; análise estática com SonarQube."
+    },
+    {
+      "id": "topic:f1fa0fd4cf9a0ede1dbb",
+      "group": "Segurança da informação e qualidade de software",
+      "text": "Contract testing e noções de mutation testing."
+    },
+    {
+      "id": "topic:a2882a933b6fd87325dc",
+      "group": "Governança e regulação do Poder Judiciário",
+      "text": "PDPJ-Br: Resolução CNJ nº 335/2020; microsserviços, marketplace do CNJ e proteção dos serviços digitais."
+    },
+    {
+      "id": "topic:42aaac2b4f2b15dbe18c",
+      "group": "Governança e regulação do Poder Judiciário",
+      "text": "Interoperabilidade: MNI, Resolução CNJ nº 91/2009, e MInG, conforme nomenclatura do edital."
+    },
+    {
+      "id": "topic:a041f19a9fe2c4e19786",
+      "group": "Governança e regulação do Poder Judiciário",
+      "text": "LGPD: princípios, dados pessoais e sensíveis, bases legais, direitos do titular e controles técnicos; impacto no design de sistemas e privacidade por padrão."
+    },
+    {
+      "id": "topic:c0b49f6185881be7db51",
+      "group": "Governança e regulação do Poder Judiciário",
+      "text": "Marco Civil da Internet: Lei nº 12.965/2014; princípios, guarda de registros de conexão e acesso a aplicações, responsabilidade dos provedores."
+    },
+    {
+      "id": "topic:07aa333cbc392c1f3c57",
+      "group": "Governança e regulação do Poder Judiciário",
+      "text": "Governança algorítmica: avaliação de impacto, transparência, explicabilidade, auditabilidade e supervisão humana."
+    },
+    {
+      "id": "topic:d89b8b635db5702d999a",
+      "group": "Governança e regulação do Poder Judiciário",
+      "text": "Normas do CNJ sobre IA no Judiciário: vedações e limites em atos decisórios."
+    },
+    {
+      "id": "topic:8a4760bb90bc4cef9d4d",
+      "group": "UI, UX e acessibilidade",
+      "text": "Princípios de interface: clareza, flexibilidade, eficiência, consistência e feedback visual."
+    },
+    {
+      "id": "topic:c66e5a3aaa183a3b3745",
+      "group": "UI, UX e acessibilidade",
+      "text": "Fluxos de usuário, wireframes e protótipos de baixa, média e alta fidelidade."
+    },
+    {
+      "id": "topic:b0fb9711ae986a706882",
+      "group": "UI, UX e acessibilidade",
+      "text": "Design systems, componentes reutilizáveis e guias de estilo."
+    },
+    {
+      "id": "topic:1a2cd08c22af10b38105",
+      "group": "UI, UX e acessibilidade",
+      "text": "Design responsivo e adaptativo; mobile-first."
+    },
+    {
+      "id": "topic:9a03ff30e0211d9ca190",
+      "group": "UI, UX e acessibilidade",
+      "text": "Modelo de Acessibilidade em Governo Eletrônico (eMAG)."
+    },
+    {
+      "id": "topic:5de4a397a63530085ffd",
+      "group": "UI, UX e acessibilidade",
+      "text": "WCAG 2.1 e 2.2: perceptível, operável, compreensível e robusto; níveis A, AA e AAA."
+    },
+    {
+      "id": "topic:451624de79ba6a414e83",
+      "group": "UI, UX e acessibilidade",
+      "text": "Desenvolvimento acessível: semântica HTML5, atributos ARIA e leitores de tela."
+    }
+  ],
+  "exams": [
+    {
+      "id": "exam:01_TJRR_2024_FGV",
+      "title": "TJRR 2024 · Desenvolvimento de Sistemas",
+      "description": "FGV · Tipo 1",
+      "documents": {
+        "prova": "01_TJRR_2024_FGV_prova",
+        "gabarito_definitivo": "01_TJRR_2024_FGV_gabarito_definitivo"
+      }
+    },
+    {
+      "id": "exam:02_TJAP_2024_FGV",
+      "title": "TJAP 2024 · Desenvolvimento de Sistemas",
+      "description": "FGV · Tipo 1",
+      "documents": {
+        "prova": "02_TJAP_2024_FGV_prova",
+        "gabarito_definitivo": "02_TJAP_2024_FGV_gabarito_definitivo"
+      }
+    },
+    {
+      "id": "exam:03_TJRJ_2026_FGV",
+      "title": "TJRJ 2026 · Analista de Sistemas",
+      "description": "FGV · Tipo 1",
+      "documents": {
+        "prova": "03_TJRJ_2026_FGV_prova",
+        "gabarito_definitivo": "03_TJRJ_2026_FGV_gabarito_definitivo"
+      }
+    },
+    {
+      "id": "exam:04_TJSC_2026_FGV",
+      "title": "TJSC 2026 · Analista de Sistemas",
+      "description": "FGV · Tipo 1",
+      "documents": {
+        "prova": "04_TJSC_2026_FGV_prova",
+        "gabarito_definitivo": "04_TJSC_2026_FGV_gabarito_definitivo"
+      }
+    },
+    {
+      "id": "exam:05_TJRN_2023_FGV",
+      "title": "TJRN 2023 · Análise de Sistemas",
+      "description": "FGV · Tipo 1",
+      "documents": {
+        "prova": "05_TJRN_2023_FGV_prova",
+        "gabarito_definitivo": "05_TJRN_2023_FGV_gabarito_definitivo",
+        "espelho_discursiva": "05_TJRN_2023_FGV_espelho_discursiva"
+      }
+    },
+    {
+      "id": "exam:06_TJDFT_2022_FGV",
+      "title": "TJDFT 2022 · Análise de Sistemas",
+      "description": "FGV · Tipo 1",
+      "documents": {
+        "prova": "06_TJDFT_2022_FGV_prova",
+        "gabarito_definitivo": "06_TJDFT_2022_FGV_gabarito_definitivo",
+        "espelho_discursiva": "06_TJDFT_2022_FGV_espelho_discursiva"
+      }
+    },
+    {
+      "id": "exam:07_TJSE_2023_FGV",
+      "title": "TJSE 2023 · Análise de Sistemas",
+      "description": "FGV · Tipo 1",
+      "documents": {
+        "prova": "07_TJSE_2023_FGV_prova",
+        "gabarito_definitivo": "07_TJSE_2023_FGV_gabarito_definitivo"
+      }
+    },
+    {
+      "id": "exam:08_TRF1_2024_FGV",
+      "title": "TRF1 2024 · Análise de Sistemas de Informação",
+      "description": "FGV · Tipo 1",
+      "documents": {
+        "prova": "08_TRF1_2024_FGV_prova",
+        "gabarito_definitivo": "08_TRF1_2024_FGV_gabarito_definitivo"
+      }
+    },
+    {
+      "id": "exam:09_TJPB_2012_FAPERP",
+      "title": "TJPB 2012 · Desenvolvimento de Sistemas",
+      "description": "FAPERP · Tipo A · histórico",
+      "documents": {
+        "prova": "09_TJPB_2012_FAPERP_prova",
+        "gabarito_definitivo": "09_TJPB_2012_FAPERP_gabarito_definitivo"
+      }
+    }
+  ],
+  "documents": [
+    {
+      "id": "01_TJRR_2024_FGV_prova",
+      "title": "Prova · TJRR 2024 · Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/01_TJRR_2024_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:01_TJRR_2024_FGV"
+    },
+    {
+      "id": "01_TJRR_2024_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · TJRR 2024 · Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/01_TJRR_2024_FGV_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 3,
+      "examId": "exam:01_TJRR_2024_FGV"
+    },
+    {
+      "id": "02_TJAP_2024_FGV_prova",
+      "title": "Prova · TJAP 2024 · Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/02_TJAP_2024_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:02_TJAP_2024_FGV"
+    },
+    {
+      "id": "02_TJAP_2024_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · TJAP 2024 · Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/02_TJAP_2024_FGV_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 10,
+      "examId": "exam:02_TJAP_2024_FGV"
+    },
+    {
+      "id": "03_TJRJ_2026_FGV_prova",
+      "title": "Prova · TJRJ 2026 · Analista de Sistemas",
+      "asset": "assets/pdfs/03_TJRJ_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:03_TJRJ_2026_FGV"
+    },
+    {
+      "id": "03_TJRJ_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · TJRJ 2026 · Analista de Sistemas",
+      "asset": "assets/pdfs/03_TJRJ_2026_FGV_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 13,
+      "examId": "exam:03_TJRJ_2026_FGV"
+    },
+    {
+      "id": "04_TJSC_2026_FGV_prova",
+      "title": "Prova · TJSC 2026 · Analista de Sistemas",
+      "asset": "assets/pdfs/04_TJSC_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:04_TJSC_2026_FGV"
+    },
+    {
+      "id": "04_TJSC_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · TJSC 2026 · Analista de Sistemas",
+      "asset": "assets/pdfs/04_TJSC_2026_FGV_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 12,
+      "examId": "exam:04_TJSC_2026_FGV"
+    },
+    {
+      "id": "05_TJRN_2023_FGV_prova",
+      "title": "Prova · TJRN 2023 · Análise de Sistemas",
+      "asset": "assets/pdfs/05_TJRN_2023_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:05_TJRN_2023_FGV"
+    },
+    {
+      "id": "05_TJRN_2023_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · TJRN 2023 · Análise de Sistemas",
+      "asset": "assets/pdfs/05_TJRN_2023_FGV_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 2,
+      "examId": "exam:05_TJRN_2023_FGV"
+    },
+    {
+      "id": "05_TJRN_2023_FGV_espelho_discursiva",
+      "title": "Espelho da discursiva · TJRN 2023 · Análise de Sistemas",
+      "asset": "assets/pdfs/05_TJRN_2023_FGV_espelho_discursiva.pdf",
+      "kind": "espelho_discursiva",
+      "initialPage": 1,
+      "examId": "exam:05_TJRN_2023_FGV"
+    },
+    {
+      "id": "06_TJDFT_2022_FGV_prova",
+      "title": "Prova · TJDFT 2022 · Análise de Sistemas",
+      "asset": "assets/pdfs/06_TJDFT_2022_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:06_TJDFT_2022_FGV"
+    },
+    {
+      "id": "06_TJDFT_2022_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · TJDFT 2022 · Análise de Sistemas",
+      "asset": "assets/pdfs/06_TJDFT_2022_FGV_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 6,
+      "examId": "exam:06_TJDFT_2022_FGV"
+    },
+    {
+      "id": "06_TJDFT_2022_FGV_espelho_discursiva",
+      "title": "Espelho da discursiva · TJDFT 2022 · Análise de Sistemas",
+      "asset": "assets/pdfs/06_TJDFT_2022_FGV_espelho_discursiva.pdf",
+      "kind": "espelho_discursiva",
+      "initialPage": 3,
+      "examId": "exam:06_TJDFT_2022_FGV"
+    },
+    {
+      "id": "07_TJSE_2023_FGV_prova",
+      "title": "Prova · TJSE 2023 · Análise de Sistemas",
+      "asset": "assets/pdfs/07_TJSE_2023_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:07_TJSE_2023_FGV"
+    },
+    {
+      "id": "07_TJSE_2023_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · TJSE 2023 · Análise de Sistemas",
+      "asset": "assets/pdfs/07_TJSE_2023_FGV_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 2,
+      "examId": "exam:07_TJSE_2023_FGV"
+    },
+    {
+      "id": "08_TRF1_2024_FGV_prova",
+      "title": "Prova · TRF1 2024 · Análise de Sistemas de Informação",
+      "asset": "assets/pdfs/08_TRF1_2024_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:08_TRF1_2024_FGV"
+    },
+    {
+      "id": "08_TRF1_2024_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · TRF1 2024 · Análise de Sistemas de Informação",
+      "asset": "assets/pdfs/08_TRF1_2024_FGV_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 4,
+      "examId": "exam:08_TRF1_2024_FGV"
+    },
+    {
+      "id": "09_TJPB_2012_FAPERP_prova",
+      "title": "Prova · TJPB 2012 · Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/09_TJPB_2012_FAPERP_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:09_TJPB_2012_FAPERP"
+    },
+    {
+      "id": "09_TJPB_2012_FAPERP_gabarito_definitivo",
+      "title": "Gabarito definitivo · TJPB 2012 · Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/09_TJPB_2012_FAPERP_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 29,
+      "examId": "exam:09_TJPB_2012_FAPERP"
+    },
+    {
+      "id": "edital_retificado_2026-10-26",
+      "title": "Edital TJPB · atualizado em 26/10",
+      "asset": "assets/pdfs/edital_retificado_2026-10-26.pdf",
+      "kind": "edital",
+      "initialPage": 1
+    },
+    {
+      "id": "primeira_retificacao_2026-10-26",
+      "title": "Primeira retificação · TJPB",
+      "asset": "assets/pdfs/primeira_retificacao_2026-10-26.pdf",
+      "kind": "edital",
+      "initialPage": 1
+    }
+  ]
+}

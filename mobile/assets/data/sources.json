@@ -1,0 +1,156 @@
+{
+  "revision": "2026-10-26",
+  "exams": [
+    {
+      "folder": "01_TJRR_2024_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/cns102t01-analista-judiciario-desenvolvimento-de-sistemas.pdf",
+      "sha256": "39dd205b33f93c7492c6d4e37a698590486287c842cd7b1bbb47dd68c9560495"
+    },
+    {
+      "folder": "01_TJRR_2024_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/tjrr_gabarito_definitivo_v3.pdf",
+      "sha256": "f36773ab48f52039f52bd5da2f8d8a14407d8c619427e834f9dc927a9688ce95"
+    },
+    {
+      "folder": "02_TJAP_2024_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/analista-judiciario-apoio-especializado-tecnologia-da-informacao-desenvolvimento-de-sistemasdes-12-tipo-1.pdf",
+      "sha256": "cdc2c4bda2264c2e95f794e9ef12b74e1e71db5b3f74f0b14ffac20c8621cfa9"
+    },
+    {
+      "folder": "02_TJAP_2024_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/tjap2024_gabarito_definitivo.pdf",
+      "sha256": "b749747622d019ea9363baf79fd4d1eab39c82a141172efe31f68efa20d8e3c5"
+    },
+    {
+      "folder": "03_TJRJ_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/analista-judiciario-tecnologia-da-informacao-analista-de-sistemas-ns-a14-anasistemas-tipo-1.pdf",
+      "sha256": "a886307fb6776e4acb68d8e52041166c1b160ea9f9bf3e22f9bc59bbe88a59cf"
+    },
+    {
+      "folder": "03_TJRJ_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/tjrj-analista-gabarito-definitivo.pdf",
+      "sha256": "05b1259bd7cb248e5cdc82d2f99bc941f74c04ebe1f6ea22d7b8bd4054223521"
+    },
+    {
+      "folder": "04_TJSC_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/prova-7.pdf",
+      "sha256": "ffcfac9b8e03fde509f9263df7652d5995f87cd488adc5d6b3796b81994c5b34"
+    },
+    {
+      "folder": "04_TJSC_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/tribunal-de-justica-do-estado-de-santa-catarina.pdf",
+      "sha256": "39f13fb552eff318632a962e091753d7504c269b1f99889649cc184c93a81f43"
+    },
+    {
+      "folder": "05_TJRN_2023_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/analista-jud-apoio-especializado-especialidade-tecnologia-de-informacao-analise-de-sistemasaj-ti-tipo-1.pdf",
+      "sha256": "02ff2380af2e841a5df50f0066621184ff04919721a801ced1d5e4e20379a38b"
+    },
+    {
+      "folder": "05_TJRN_2023_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/tjrn2023_gabarito_definitivo-edital-2.pdf",
+      "sha256": "094e8fe5b0c3b4c89ef15ff09e4b26abb82a864c7596ff735c46908f16c15564"
+    },
+    {
+      "folder": "05_TJRN_2023_FGV",
+      "kind": "espelho_discursiva",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/espelhos-ti-tjrn.pdf",
+      "sha256": "d6ccbb81d337e9af74524cf697acdc954830826465d567555eb5c5207f95a280"
+    },
+    {
+      "folder": "06_TJDFT_2022_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/analista_judiciario_-_analise_de_sistemasns-asa_tipo_1.pdf",
+      "sha256": "312d33b997ea56995cec8a3705986dd679e0ed305fd2d5827f2beb290e12d28d"
+    },
+    {
+      "folder": "06_TJDFT_2022_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/tjdft2022_gabarito_definitivo.pdf",
+      "sha256": "6b2c4fa00f4123c8b0e16f549abcf573ddf7bc79d73d1a8ea164907302661502"
+    },
+    {
+      "folder": "06_TJDFT_2022_FGV",
+      "kind": "espelho_discursiva",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/tjdft2022_espelhos_v2.pdf",
+      "sha256": "f4d04c1d5c75f15ee47e00334ea8e6939ae0cd0f4891a0c82de63164483ee922"
+    },
+    {
+      "folder": "07_TJSE_2023_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/analista-judiciario-especialidade-analise-de-sistemasaj-asi-tipo-1.pdf",
+      "sha256": "f117c94274ea4cc13b54f5078b8af01424a08fbe5e16e7b97864fa439f0fc437"
+    },
+    {
+      "folder": "07_TJSE_2023_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/tj-se-gabarito-definitivo-nivel-medio-e-superior.pdf",
+      "sha256": "9b110bf1986f6604c2fbf941653b8a66031dae30ed25cf1d54f01b4313c191c7"
+    },
+    {
+      "folder": "08_TRF1_2024_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/7.pdf",
+      "sha256": "603b0c6d7e0da03ca8cf57ede9bda184a3aad4633d7f1ef9e5caf3af25f88885"
+    },
+    {
+      "folder": "08_TRF1_2024_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/trf1_gabarito_definitivo_v4.pdf",
+      "sha256": "7e5463bc0e9632ee6bb75f2ea094a2413f426e5da2f9f2763dcaa8bda40a15b2"
+    },
+    {
+      "folder": "09_TJPB_2012_FAPERP",
+      "kind": "prova",
+      "url": "https://www.estudegratis.com.br/images/provas/22788-faperp-2012-tj-pb-analista-desenvolvimento-de-sistemas-prova.pdf",
+      "sha256": "ebd74f3217694c70c031097461342d19d952f3bceedf35e704412fedeb1a9aae"
+    },
+    {
+      "folder": "09_TJPB_2012_FAPERP",
+      "kind": "gabarito_definitivo",
+      "url": "https://www.estudegratis.com.br/images/provas/22789-faperp-2012-tj-pb-analista-judiciario-tecnologia-da-informacao-gabarito.pdf",
+      "sha256": "503574adfa3fd5ebb5f0ff8dbac61008853455b12720786719fdea740d3576da"
+    }
+  ],
+  "official_editals": [
+    {
+      "file": "edital_retificado_2026-10-26.pdf",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/edital-retificado-tjpb_23.10_.pdf",
+      "pages": 54,
+      "sha256": "34ca177ced2e7af7db599c168fb17be3ae1bda0dcf643b5d2b2489ed04ea7795"
+    },
+    {
+      "file": "primeira_retificacao_2026-10-26.pdf",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/extrato-1a-retificacao-do-edital-tjpb.pdf",
+      "pages": 2,
+      "sha256": "e6287ec8b043b156dd0531f34cc44f1d2276f49986edfd57830df0b6a7a74d0b"
+    }
+  ],
+  "fonts": [
+    {
+      "family": "DMSans",
+      "source": "https://github.com/google/fonts/tree/main/ofl/dmsans",
+      "license": "SIL OFL"
+    },
+    {
+      "family": "SourceSerif",
+      "source": "https://github.com/google/fonts/tree/main/ofl/sourceserif4",
+      "license": "SIL OFL"
+    },
+    {
+      "family": "JetBrainsMono",
+      "source": "https://github.com/google/fonts/tree/main/ofl/jetbrainsmono",
+      "license": "SIL OFL"
+    }
+  ]
+}
