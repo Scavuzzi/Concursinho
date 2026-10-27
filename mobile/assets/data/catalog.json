@@ -817,6 +817,214 @@
         "prova": "09_TJPB_2012_FAPERP_prova",
         "gabarito_definitivo": "09_TJPB_2012_FAPERP_gabarito_definitivo"
       }
+    },
+    {
+      "id": "exam:10_MPU_2025_FGV",
+      "title": "MPU 2025 · Desenvolvimento de Sistemas",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "10_MPU_2025_FGV_prova",
+        "gabarito_definitivo": "10_MPU_2025_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "analista do mpu - desenvolvimento de sistemas - 1",
+        "questions": 80
+      }
+    },
+    {
+      "id": "exam:11_CPRM_2025_FGV",
+      "title": "CPRM 2025 · Análise e Desenvolvimento de Sistemas",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "11_CPRM_2025_FGV_prova",
+        "gabarito_definitivo": "11_CPRM_2025_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "analista em geociencias - analise e desenvolvimento de sistemas - 1 - turno manha",
+        "questions": 70
+      }
+    },
+    {
+      "id": "exam:12_ALERO_2026_FGV",
+      "title": "ALE-RO 2026 · Análise e Desenvolvimento de Sistemas",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "12_ALERO_2026_FGV_prova",
+        "gabarito_definitivo": "12_ALERO_2026_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "analista legislativo - tecnologia da informacao - analise e desenvolvimento de sistemas - 1 - turno tarde",
+        "questions": 80
+      }
+    },
+    {
+      "id": "exam:13_ALERO_2026_FGV",
+      "title": "ALE-RO 2026 · Banco de Dados",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "13_ALERO_2026_FGV_prova",
+        "gabarito_definitivo": "13_ALERO_2026_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "analista legislativo - tecnologia da informacao - banco de dados - 1 - turno tarde",
+        "questions": 80
+      }
+    },
+    {
+      "id": "exam:14_ALERO_2026_FGV",
+      "title": "ALE-RO 2026 · Infraestrutura de Redes",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "14_ALERO_2026_FGV_prova",
+        "gabarito_definitivo": "14_ALERO_2026_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "analista legislativo - tecnologia da informacao - infraestrutura de redes e comunicacao - 1 - turno tarde",
+        "questions": 80
+      }
+    },
+    {
+      "id": "exam:15_MPES_2026_FGV",
+      "title": "MPES 2026 · Analista de Sistemas",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "15_MPES_2026_FGV_prova",
+        "gabarito_definitivo": "15_MPES_2026_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "agente especializado – analista de sistemas - tipo 1 - turno manha",
+        "questions": 60
+      }
+    },
+    {
+      "id": "exam:16_MPES_2026_FGV",
+      "title": "MPES 2026 · Experiência do Usuário",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "16_MPES_2026_FGV_prova",
+        "gabarito_definitivo": "16_MPES_2026_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "agente especializado – analista de experiencia do usuario – ux - tipo 1 - turno manha",
+        "questions": 60
+      }
+    },
+    {
+      "id": "exam:17_MPES_2026_FGV",
+      "title": "MPES 2026 · Infraestrutura",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "17_MPES_2026_FGV_prova",
+        "gabarito_definitivo": "17_MPES_2026_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "agente especializado – analista de infraestrutura - tipo 1 - turno manha",
+        "questions": 60
+      }
+    },
+    {
+      "id": "exam:18_MPES_2026_FGV",
+      "title": "MPES 2026 · Segurança da Informação",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "18_MPES_2026_FGV_prova",
+        "gabarito_definitivo": "18_MPES_2026_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "agente especializado – analista de seguranca da informacao - tipo 1 - turno manha",
+        "questions": 60
+      }
+    },
+    {
+      "id": "exam:19_MPES_2026_FGV",
+      "title": "MPES 2026 · Ciência de Dados",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "19_MPES_2026_FGV_prova",
+        "gabarito_definitivo": "19_MPES_2026_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "agente especializado – cientista de dados e inteligencia de negocios - tipo 1 - turno manha",
+        "questions": 60
+      }
+    },
+    {
+      "id": "exam:20_MPES_2026_FGV",
+      "title": "MPES 2026 · Engenharia de Dados",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "20_MPES_2026_FGV_prova",
+        "gabarito_definitivo": "20_MPES_2026_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "agente especializado – engenheiro de dados - tipo 1 - turno manha",
+        "questions": 60
+      }
+    },
+    {
+      "id": "exam:21_MPES_2026_FGV",
+      "title": "MPES 2026 · Qualidade e Testes de Software",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "21_MPES_2026_FGV_prova",
+        "gabarito_definitivo": "21_MPES_2026_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "agente tecnico – qualidade e testes de software - tipo 1 - turno manha",
+        "questions": 60
+      }
+    },
+    {
+      "id": "exam:22_MPRJ_2025_FGV",
+      "title": "MPRJ 2025 · Tecnologia da Informação",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "22_MPRJ_2025_FGV_prova",
+        "gabarito_definitivo": "22_MPRJ_2025_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "analista do ministerio publico - area administrativa - tecnologia da informacao - 1",
+        "questions": 80
+      }
+    },
+    {
+      "id": "exam:23_SJC_2024_FGV",
+      "title": "São José dos Campos 2024 · Tecnologia da Informação",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "23_SJC_2024_FGV_prova",
+        "gabarito_definitivo": "23_SJC_2024_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "analista em gestao municipal \\(tecnologia da informacao\\) - tipo\\s+1",
+        "questions": 70
+      }
+    },
+    {
+      "id": "exam:24_TCERR_2025_FGV",
+      "title": "TCE-RR 2025 · Desenvolvimento de Sistemas",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "24_TCERR_2025_FGV_prova",
+        "gabarito_definitivo": "24_TCERR_2025_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "analista administrativo - tecnologia da informacao - desenvolvimento de sistemas - tipo\\s+1",
+        "questions": 80
+      }
+    },
+    {
+      "id": "exam:25_TCERR_2025_FGV",
+      "title": "TCE-RR 2025 · Banco de Dados",
+      "description": "FGV · Tipo 1 · fonte adicional de TI",
+      "documents": {
+        "prova": "25_TCERR_2025_FGV_prova",
+        "gabarito_definitivo": "25_TCERR_2025_FGV_gabarito_definitivo"
+      },
+      "questionBank": {
+        "keyHeading": "analista administrativo - tecnologia da informacao - banco de dados - tipo\\s+1",
+        "questions": 80
+      }
     }
   ],
   "documents": [
@@ -993,6 +1201,262 @@
       "asset": "assets/pdfs/primeira_retificacao_2026-10-26.pdf",
       "kind": "edital",
       "initialPage": 1
+    },
+    {
+      "id": "10_MPU_2025_FGV_prova",
+      "title": "Prova · MPU 2025 · Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/10_MPU_2025_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:10_MPU_2025_FGV"
+    },
+    {
+      "id": "10_MPU_2025_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · MPU 2025 · Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/fonte_mpu_2025_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 6,
+      "examId": "exam:10_MPU_2025_FGV"
+    },
+    {
+      "id": "11_CPRM_2025_FGV_prova",
+      "title": "Prova · CPRM 2025 · Análise e Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/11_CPRM_2025_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:11_CPRM_2025_FGV"
+    },
+    {
+      "id": "11_CPRM_2025_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · CPRM 2025 · Análise e Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/fonte_cprm_2025_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 24,
+      "examId": "exam:11_CPRM_2025_FGV"
+    },
+    {
+      "id": "12_ALERO_2026_FGV_prova",
+      "title": "Prova · ALE-RO 2026 · Análise e Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/12_ALERO_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:12_ALERO_2026_FGV"
+    },
+    {
+      "id": "12_ALERO_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · ALE-RO 2026 · Análise e Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/fonte_alero_2025_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 13,
+      "examId": "exam:12_ALERO_2026_FGV"
+    },
+    {
+      "id": "13_ALERO_2026_FGV_prova",
+      "title": "Prova · ALE-RO 2026 · Banco de Dados",
+      "asset": "assets/pdfs/13_ALERO_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:13_ALERO_2026_FGV"
+    },
+    {
+      "id": "13_ALERO_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · ALE-RO 2026 · Banco de Dados",
+      "asset": "assets/pdfs/fonte_alero_2025_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 12,
+      "examId": "exam:13_ALERO_2026_FGV"
+    },
+    {
+      "id": "14_ALERO_2026_FGV_prova",
+      "title": "Prova · ALE-RO 2026 · Infraestrutura de Redes",
+      "asset": "assets/pdfs/14_ALERO_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:14_ALERO_2026_FGV"
+    },
+    {
+      "id": "14_ALERO_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · ALE-RO 2026 · Infraestrutura de Redes",
+      "asset": "assets/pdfs/fonte_alero_2025_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 12,
+      "examId": "exam:14_ALERO_2026_FGV"
+    },
+    {
+      "id": "15_MPES_2026_FGV_prova",
+      "title": "Prova · MPES 2026 · Analista de Sistemas",
+      "asset": "assets/pdfs/15_MPES_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:15_MPES_2026_FGV"
+    },
+    {
+      "id": "15_MPES_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · MPES 2026 · Analista de Sistemas",
+      "asset": "assets/pdfs/fonte_mpes_2026_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 6,
+      "examId": "exam:15_MPES_2026_FGV"
+    },
+    {
+      "id": "16_MPES_2026_FGV_prova",
+      "title": "Prova · MPES 2026 · Experiência do Usuário",
+      "asset": "assets/pdfs/16_MPES_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:16_MPES_2026_FGV"
+    },
+    {
+      "id": "16_MPES_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · MPES 2026 · Experiência do Usuário",
+      "asset": "assets/pdfs/fonte_mpes_2026_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 3,
+      "examId": "exam:16_MPES_2026_FGV"
+    },
+    {
+      "id": "17_MPES_2026_FGV_prova",
+      "title": "Prova · MPES 2026 · Infraestrutura",
+      "asset": "assets/pdfs/17_MPES_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:17_MPES_2026_FGV"
+    },
+    {
+      "id": "17_MPES_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · MPES 2026 · Infraestrutura",
+      "asset": "assets/pdfs/fonte_mpes_2026_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 4,
+      "examId": "exam:17_MPES_2026_FGV"
+    },
+    {
+      "id": "18_MPES_2026_FGV_prova",
+      "title": "Prova · MPES 2026 · Segurança da Informação",
+      "asset": "assets/pdfs/18_MPES_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:18_MPES_2026_FGV"
+    },
+    {
+      "id": "18_MPES_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · MPES 2026 · Segurança da Informação",
+      "asset": "assets/pdfs/fonte_mpes_2026_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 5,
+      "examId": "exam:18_MPES_2026_FGV"
+    },
+    {
+      "id": "19_MPES_2026_FGV_prova",
+      "title": "Prova · MPES 2026 · Ciência de Dados",
+      "asset": "assets/pdfs/19_MPES_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:19_MPES_2026_FGV"
+    },
+    {
+      "id": "19_MPES_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · MPES 2026 · Ciência de Dados",
+      "asset": "assets/pdfs/fonte_mpes_2026_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 7,
+      "examId": "exam:19_MPES_2026_FGV"
+    },
+    {
+      "id": "20_MPES_2026_FGV_prova",
+      "title": "Prova · MPES 2026 · Engenharia de Dados",
+      "asset": "assets/pdfs/20_MPES_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:20_MPES_2026_FGV"
+    },
+    {
+      "id": "20_MPES_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · MPES 2026 · Engenharia de Dados",
+      "asset": "assets/pdfs/fonte_mpes_2026_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 8,
+      "examId": "exam:20_MPES_2026_FGV"
+    },
+    {
+      "id": "21_MPES_2026_FGV_prova",
+      "title": "Prova · MPES 2026 · Qualidade e Testes de Software",
+      "asset": "assets/pdfs/21_MPES_2026_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:21_MPES_2026_FGV"
+    },
+    {
+      "id": "21_MPES_2026_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · MPES 2026 · Qualidade e Testes de Software",
+      "asset": "assets/pdfs/fonte_mpes_2026_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 40,
+      "examId": "exam:21_MPES_2026_FGV"
+    },
+    {
+      "id": "22_MPRJ_2025_FGV_prova",
+      "title": "Prova · MPRJ 2025 · Tecnologia da Informação",
+      "asset": "assets/pdfs/22_MPRJ_2025_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:22_MPRJ_2025_FGV"
+    },
+    {
+      "id": "22_MPRJ_2025_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · MPRJ 2025 · Tecnologia da Informação",
+      "asset": "assets/pdfs/fonte_mprj_2025_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 1,
+      "examId": "exam:22_MPRJ_2025_FGV"
+    },
+    {
+      "id": "23_SJC_2024_FGV_prova",
+      "title": "Prova · São José dos Campos 2024 · Tecnologia da Informação",
+      "asset": "assets/pdfs/23_SJC_2024_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:23_SJC_2024_FGV"
+    },
+    {
+      "id": "23_SJC_2024_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · São José dos Campos 2024 · Tecnologia da Informação",
+      "asset": "assets/pdfs/fonte_prefsjc_2024_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 2,
+      "examId": "exam:23_SJC_2024_FGV"
+    },
+    {
+      "id": "24_TCERR_2025_FGV_prova",
+      "title": "Prova · TCE-RR 2025 · Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/24_TCERR_2025_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:24_TCERR_2025_FGV"
+    },
+    {
+      "id": "24_TCERR_2025_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · TCE-RR 2025 · Desenvolvimento de Sistemas",
+      "asset": "assets/pdfs/fonte_tce_rr_2025_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 2,
+      "examId": "exam:24_TCERR_2025_FGV"
+    },
+    {
+      "id": "25_TCERR_2025_FGV_prova",
+      "title": "Prova · TCE-RR 2025 · Banco de Dados",
+      "asset": "assets/pdfs/25_TCERR_2025_FGV_prova.pdf",
+      "kind": "prova",
+      "initialPage": 1,
+      "examId": "exam:25_TCERR_2025_FGV"
+    },
+    {
+      "id": "25_TCERR_2025_FGV_gabarito_definitivo",
+      "title": "Gabarito definitivo · TCE-RR 2025 · Banco de Dados",
+      "asset": "assets/pdfs/fonte_tce_rr_2025_gabarito_definitivo.pdf",
+      "kind": "gabarito_definitivo",
+      "initialPage": 3,
+      "examId": "exam:25_TCERR_2025_FGV"
     }
   ]
 }

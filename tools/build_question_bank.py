@@ -26,12 +26,14 @@ def lines(page):
             yield "".join(s["text"] for s in line["spans"]), line["bbox"], line["spans"]
 
 
-def answer_key(page, folder):
+def answer_key(page, folder, heading_pattern=None):
     candidates = []
     for text, box, _ in lines(page):
         norm = plain(text)
-        if ("sistemas" in norm and ("tipo" in norm or "turno" in norm)
-                and re.search(r"(?:tipo\s*1\b| - 1 - )", norm)):
+        matches = (re.fullmatch(heading_pattern, norm.strip()) if heading_pattern else
+                   "sistemas" in norm and ("tipo" in norm or "turno" in norm)
+                   and re.search(r"(?:tipo\s*1\b| - 1 - )", norm))
+        if matches:
             candidates.append((box[3], norm))
     if len(candidates) != 1:
         raise ValueError(f"{folder}: expected one heading for the Systems / type 1 answer key, got {candidates}")
@@ -39,9 +41,10 @@ def answer_key(page, folder):
     end = page.rect.height
     for text, box, _ in lines(page):
         norm = plain(text)
-        if box[1] > start and ("tipo" in norm or "turno" in norm) and (
+        is_heading = re.search(r"\s[-–]\s(?:tipo\s*)?[1-4](?:\s*[-–]\s*turno\s.*)?$", norm.strip())
+        if box[1] > start and (is_heading or ("tipo" in norm or "turno" in norm) and (
             "analista" in norm or "tecnico" in norm or "arquiteto" in norm
-        ):
+        )):
             end = min(end, box[1])
     words = [w for w in page.get_text("words") if start < w[1] < end]
     letters = [w for w in words if re.fullmatch(r"[ABCDE*]", w[4])]
@@ -142,13 +145,18 @@ def build():
     sources = json.loads((MOBILE / "assets/data/sources.json").read_text(encoding="utf-8"))["exams"]
     records, excluded = [], Counter()
     report = []
-    for exam in catalog["exams"][:8]:
+    selected = [e for i,e in enumerate(catalog["exams"]) if i < 8 or e.get("questionBank")]
+    for exam in selected:
         folder = exam["id"].removeprefix("exam:")
         original = next(d for d in catalog["documents"] if d["id"] == exam["documents"]["prova"])
         key = next(d for d in catalog["documents"] if d["id"] == exam["documents"]["gabarito_definitivo"])
         proof = fitz.open(MOBILE / original["asset"])
+        layout = [list(lines(page)) for page in proof]
         key_doc = fitz.open(MOBILE / key["asset"])
-        answers = answer_key(key_doc[key["initialPage"] - 1], folder)
+        config = exam.get("questionBank", {})
+        answers = answer_key(key_doc[key["initialPage"] - 1], folder, config.get("keyHeading"))
+        if config.get("questions") and len(answers) != config["questions"]:
+            raise ValueError(f"{folder}: answer count differs from the booklet cover")
         regions, anchors = [], []
         section, specific = "Conhecimentos gerais", False
         for page_index, page in enumerate(proof):
@@ -158,8 +166,8 @@ def build():
                 # Original source coordinates; retain vectors, diagrams and code.
                 x0, x1 = (30, 291) if column == 0 else (307, 575)
                 region_id = len(regions)
-                regions.append((page_index, (x0, 52, x1, 797)))
-                for text, box, spans in lines(page):
+                regions.append((page_index, (x0, 48 if config else 52, x1, 797)))
+                for text, box, spans in layout[page_index]:
                     if not (x0 <= box[0] < x1 and 42 < box[1] < 790):
                         continue
                     if len(text.strip()) < 100 and any(s['flags'] & 16 and s['size'] >= 12 for s in spans):
@@ -187,6 +195,14 @@ def build():
                 x0, y0, x1, y1 = rect
                 if region == region_id: y0 = start_y
                 if region == end_region: y1 = end_y
+                if config:
+                    # Section titles between the last option and the next
+                    # question belong to the following section, not option E.
+                    y1 = min(y1, 785)
+                    for title, box, spans in layout[pno]:
+                        norm = plain(title).strip()
+                        if x0 <= box[0] < x1 and y0 < box[1] < y1 and any(s['flags'] & 16 and s['size'] >= 12 for s in spans) and re.match(r'^(?:conhecimentos\b|legislacao especifica\b|modulo\b|especificos\b)', norm):
+                            y1 = min(y1, box[1]-3)
                 if y1-y0 < 3: continue
                 clip = fitz.Rect(x0,y0,x1,y1)
                 raw = proof[pno].get_text(clip=clip, sort=True).strip()
@@ -205,6 +221,9 @@ def build():
                 excluded["empty_text"] += 1
                 continue
             if re.search(r"(?i)texto (?:I\b|II\b|acima|anterior)|texto a seguir.*quest[oõ]es|texto [12]\b|(?:definid|apresentad|descrit)[ao]s? anteriormente|quest[aã]o anterior|(?:tabelas?|diagramas?|figuras?|esquemas?) (?:acima|anteriores?)", stem):
+                excluded["shared_context"] += 1
+                continue
+            if config and re.search(r'(?i)(?:do|no|ao|nesse|desse|neste|deste)\s+texto\b|(?:fragmento|trecho|periodo|par[aá]grafo) (?:acima|anterior)|(?:o|ao) texto\s*(?:\d|[IVX]+)\b', stem):
                 excluded["shared_context"] += 1
                 continue
             # Distractors often mention unrelated technologies: classify the
@@ -232,9 +251,25 @@ def build():
             })
             accepted += 1
         report.append({"exam":folder,"officialQuestions":len(answers),"included":accepted,"proofSha256":src_hash(MOBILE/original["asset"]),"keySha256":src_hash(MOBILE/key["asset"])})
+    # Shared general questions occur in several TI specialties. Count each
+    # normalized stem/options only once and never resolve conflicting keys by
+    # silently picking one of the official sources.
+    unique = {}
+    for record in records:
+        fp = hashlib.sha256('\n'.join(' '.join(s.lower().split()) for s in [record['stem'],*record['options']]).encode()).hexdigest()
+        if fp in unique:
+            if unique[fp]['answer'] != record['answer']:
+                raise ValueError(f"Conflicting official answers: {unique[fp]['id']} / {record['id']}")
+            excluded['duplicate_content'] += 1
+        else:
+            unique[fp] = record
+    records = list(unique.values())
+    counts = Counter(q['id'].split(':tipo1:')[0] for q in records)
+    for item in report:
+        item['included'] = counts[item['exam']]
     destination = MOBILE / "assets/data/questoes.jsonl"
     destination.write_text("".join(json.dumps(q,ensure_ascii=False)+"\n" for q in records),encoding="utf-8")
-    (ROOT/"data/question-bank-build.json").write_text(json.dumps({"revision":"2026-10-27","included":len(records),"subjects":dict(Counter(q['subject'] for q in records)),"excluded":dict(excluded),"exams":report,"note":"Initial classification is suggested, not a reviewed subject taxonomy. All answers are matched to the type-1 final answer key; cancelled/ambiguous items are excluded."},ensure_ascii=False,indent=2),encoding="utf-8")
+    (ROOT/"data/question-bank-build.json").write_text(json.dumps({"revision":"2026-10-27-v2","included":len(records),"subjects":dict(Counter(q['subject'] for q in records)),"excluded":dict(excluded),"exams":report,"note":"Initial classification is suggested, not a reviewed subject taxonomy. All answers are matched to the type-1 final answer key; cancelled/ambiguous items are excluded. Identical stem/options across specialties are deduplicated before counting."},ensure_ascii=False,indent=2),encoding="utf-8")
     print(json.dumps({"included":len(records),"excluded":dict(excluded),"subjects":dict(Counter(q['subject'] for q in records))},ensure_ascii=False,indent=2))
 
 

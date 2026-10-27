@@ -23,12 +23,15 @@ void main() {
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    final state = StudyState(
-      await StudyCatalog.load(),
-      MemoryStorage(),
-      Directory.systemTemp,
-    );
-    await state.load();
+    late StudyState state;
+    await tester.runAsync(() async {
+      state = StudyState(
+        await StudyCatalog.load(),
+        MemoryStorage(),
+        Directory.systemTemp,
+      );
+      await state.load();
+    });
     await tester.pumpWidget(ConcursinhoApp(state: state));
     await tester.pumpAndSettle();
     expect(find.text('concursinho.'), findsOneWidget);

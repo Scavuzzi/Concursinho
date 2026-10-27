@@ -18,10 +18,18 @@ Future<void> waitFor(WidgetTester tester, Finder finder) async {
   expect(finder, findsWidgets);
 }
 
+Future<void> tapVisible(WidgetTester tester, Finder finder) async {
+  await tester.ensureVisible(finder);
+  await tester.pumpAndSettle();
+  expect(finder.hitTestable(), findsOneWidget);
+  await tester.tap(finder);
+  await tester.pumpAndSettle();
+}
+
 void main() {
   setUpAll(sqfliteFfiInit);
   testWidgets(
-    'Questões: confirmar uma vez, registrar erro, ver diagnóstico e corrigir assunto em tela estreita',
+    'Questão longa: responder, voltar ao diagnóstico e corrigir assunto em tela estreita',
     (tester) async {
       tester.view.physicalSize = const Size(360, 800);
       tester.view.devicePixelRatio = 1;
@@ -43,7 +51,8 @@ void main() {
               'subject': 'Banco de dados',
               'topic': 'SQL',
               'stem':
-                  'Questão fictícia para testar a interface. Qual é a correta?',
+                  'Questão fictícia para testar a interface. Qual é a correta?\n\n'
+                  '${List.generate(35, (i) => 'Parágrafo fictício $i para testar uma questão longa e a retomada dos controles após registrar a resposta.').join('\n\n')}',
               'options': ['A correta', 'A incorreta'],
               'answer': 0,
               'source': 'Fixture de teste',
@@ -65,41 +74,19 @@ void main() {
       await tester.tap(find.byKey(const Key('draw-question')));
       await tester.pumpAndSettle();
       await waitFor(tester, find.byKey(const Key('answer-1')));
-      await tester.ensureVisible(find.byKey(const Key('answer-1')));
-      await tester.tap(find.byKey(const Key('answer-1')));
-      await tester.pumpAndSettle();
+      await tapVisible(tester, find.byKey(const Key('answer-1')));
       final confirm = find.text('Confirmar resposta');
-      await tester.ensureVisible(confirm);
-      await tester.tap(confirm);
-      await tester.pumpAndSettle();
+      await tapVisible(tester, confirm);
       await waitFor(tester, find.text('Vamos entender esse erro.'));
-      await tester.ensureVisible(find.text('Interpretação'));
-      await tester.tap(find.text('Interpretação'));
-      await tester.pumpAndSettle();
-      await tester.drag(
-        find.byKey(const PageStorageKey('questions-scroll')),
-        const Offset(0, 3000),
-      );
-      await tester.pumpAndSettle();
-      await tester.ensureVisible(find.text('Desempenho'));
-      await tester.tap(find.text('Desempenho'));
-      await tester.pumpAndSettle();
+      await tapVisible(tester, find.text('Interpretação'));
+      await tapVisible(tester, find.text('Desempenho'));
       await waitFor(tester, find.text('Amostra inicial'));
       expect((await report()).attempts, 1);
       expect((await report()).correct, 0);
       expect((await report()).reasons.single['reason'], 'Interpretação');
       expect(tester.takeException(), isNull);
-      await tester.drag(
-        find.byKey(const PageStorageKey('questions-scroll')),
-        const Offset(0, 3000),
-      );
-      await tester.pumpAndSettle();
-      await tester.ensureVisible(find.text('Praticar'));
-      await tester.tap(find.text('Praticar'));
-      await tester.pumpAndSettle();
-      await tester.ensureVisible(find.text('Ajustar assunto e tópico'));
-      await tester.tap(find.text('Ajustar assunto e tópico'));
-      await tester.pumpAndSettle();
+      await tapVisible(tester, find.text('Praticar'));
+      await tapVisible(tester, find.text('Ajustar assunto e tópico'));
       await tester.enterText(find.byType(TextField).first, 'Desenvolvimento');
       await tester.enterText(find.byType(TextField).last, 'Algoritmos');
       await tester.tap(find.text('Salvar'));

@@ -44,6 +44,27 @@ class QuestionBankTests(unittest.TestCase):
         self.assertEqual(self.bank.draw(subject='Redes',topic='TCP')[0]['id'],'test:20')
         self.assertIsNone(self.bank.draw(subject='Inexistente')[0])
 
+    def test_optional_null_metadata_is_compatible_with_mobile(self):
+        q={**fixture(1),'sourceUrl':None,'answerSourceUrl':None,'explanation':None}
+        self.assertEqual(self.load([q])['added'],1)
+        saved=self.bank.draw()[0]
+        self.assertEqual(saved['sourceUrl'],'')
+        self.assertEqual(saved['explanation'],'')
+
+    def test_new_seed_revision_adds_questions_without_losing_history_or_user_tags(self):
+        old=Path(self.temp.name)/'old.jsonl'
+        old.write_text(json.dumps(fixture(1))+'\n',encoding='utf-8')
+        self.bank.seed(old,revision='v1')
+        self.bank.answer('test:1',1,'before-upgrade')
+        self.bank.reclassify('test:1','Minha disciplina','Meu tópico')
+        new=Path(self.temp.name)/'new.jsonl'
+        new.write_text('\n'.join(json.dumps(q) for q in [fixture(1),fixture(2)]),encoding='utf-8')
+        self.bank.seed(new,revision='v2')
+        self.bank.seed(new,revision='v2')
+        self.assertEqual(self.bank.count(),2)
+        self.assertEqual(self.bank.report()['attempts'],1)
+        self.assertEqual(self.bank.report()['topics'][0]['subject'],'Minha disciplina')
+
     def test_independent_mode_allows_repeats(self):
         self.load([fixture(1)])
         for _ in range(3):self.assertFalse(self.bank.draw(avoid_repeats=False)[1])

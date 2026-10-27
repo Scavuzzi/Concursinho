@@ -1,25 +1,27 @@
 {
-  "revision": "2026-10-27",
-  "included": 348,
+  "revision": "2026-10-27-v2",
+  "included": 931,
   "subjects": {
-    "Língua Portuguesa": 117,
-    "Desenvolvimento de sistemas": 54,
-    "Redes e sistemas": 19,
-    "Arquitetura de software": 32,
-    "Segurança da informação": 32,
-    "Gestão e governança de TI": 13,
-    "Engenharia de software": 20,
-    "DevOps e nuvem": 17,
-    "Banco de dados": 33,
-    "Inteligência artificial": 3,
-    "Interfaces e acessibilidade": 3,
-    "Raciocínio lógico": 5
+    "Língua Portuguesa": 204,
+    "Desenvolvimento de sistemas": 120,
+    "Redes e sistemas": 67,
+    "Arquitetura de software": 74,
+    "Segurança da informação": 106,
+    "Gestão e governança de TI": 35,
+    "Engenharia de software": 75,
+    "DevOps e nuvem": 30,
+    "Banco de dados": 134,
+    "Inteligência artificial": 9,
+    "Interfaces e acessibilidade": 15,
+    "Raciocínio lógico": 62
   },
   "excluded": {
-    "unclassified": 174,
-    "outside_ti_scope": 20,
-    "cancelled": 15,
-    "shared_context": 23
+    "unclassified": 489,
+    "outside_ti_scope": 37,
+    "cancelled": 23,
+    "shared_context": 60,
+    "empty_text": 2,
+    "duplicate_content": 158
   },
   "exams": [
     {
@@ -77,7 +79,119 @@
       "included": 44,
       "proofSha256": "603b0c6d7e0da03ca8cf57ede9bda184a3aad4633d7f1ef9e5caf3af25f88885",
       "keySha256": "7e5463bc0e9632ee6bb75f2ea094a2413f426e5da2f9f2763dcaa8bda40a15b2"
+    },
+    {
+      "exam": "10_MPU_2025_FGV",
+      "officialQuestions": 80,
+      "included": 45,
+      "proofSha256": "8ffcfd67cbf1adda266da959bad51e89ab393b9735f44f2391475ba104fcbd82",
+      "keySha256": "d0c27eef45936e146408ea305f28902bc88e7436fb2bed15819ce22c450a1493"
+    },
+    {
+      "exam": "11_CPRM_2025_FGV",
+      "officialQuestions": 70,
+      "included": 47,
+      "proofSha256": "32e602ccc224ba4d3bfdf581a0497c4a980c41e27ebf296218c69e121b152c33",
+      "keySha256": "9f7e8002ec6a5db65229ccbf68eb890f3d33153bbca7a45ad90b43a6ce6322df"
+    },
+    {
+      "exam": "12_ALERO_2026_FGV",
+      "officialQuestions": 80,
+      "included": 49,
+      "proofSha256": "d28c9514828f5cf47c41d2087a8ece275832c13fab4c2571ad04ca31d420a0f5",
+      "keySha256": "eb2ec96e998d7813ea130305954a45e3987d951476df46ad8fd7c7a88645f95c"
+    },
+    {
+      "exam": "13_ALERO_2026_FGV",
+      "officialQuestions": 80,
+      "included": 31,
+      "proofSha256": "88e188211ef9bb5b3d3efb667af20bcd3002ae23d7239d7534f6db0260ea2041",
+      "keySha256": "eb2ec96e998d7813ea130305954a45e3987d951476df46ad8fd7c7a88645f95c"
+    },
+    {
+      "exam": "14_ALERO_2026_FGV",
+      "officialQuestions": 80,
+      "included": 31,
+      "proofSha256": "95ec8098f8db8c7d94a92a9de5966da28cb1339aa390a5c988de2ce11487d097",
+      "keySha256": "eb2ec96e998d7813ea130305954a45e3987d951476df46ad8fd7c7a88645f95c"
+    },
+    {
+      "exam": "15_MPES_2026_FGV",
+      "officialQuestions": 60,
+      "included": 46,
+      "proofSha256": "77be12c91faeeaede45da2ee9c17d0bb22e8efcdc1d91b514d01c803a6bb6ca7",
+      "keySha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "exam": "16_MPES_2026_FGV",
+      "officialQuestions": 60,
+      "included": 17,
+      "proofSha256": "f5864a24cfd6f0617cda45a0a0118c4bcd390d341e6e10aec0e964d1b5675851",
+      "keySha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "exam": "17_MPES_2026_FGV",
+      "officialQuestions": 60,
+      "included": 30,
+      "proofSha256": "b06843c56b50b1cdd597dd7087a7caced174aeaf9d7d6a168586aa484846ed0d",
+      "keySha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "exam": "18_MPES_2026_FGV",
+      "officialQuestions": 60,
+      "included": 32,
+      "proofSha256": "5fe62c68dff7d82cdb4a8dc2571ad276a8d2bed0d4752746b82da74b1ab3378c",
+      "keySha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "exam": "19_MPES_2026_FGV",
+      "officialQuestions": 60,
+      "included": 24,
+      "proofSha256": "cb84dde0a3a1f37dfcc94d956495e98a703a03efd7d3bdc27377f8249fa4a7f9",
+      "keySha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "exam": "20_MPES_2026_FGV",
+      "officialQuestions": 60,
+      "included": 27,
+      "proofSha256": "307d572c6ce6db01229f884543f2f6c84c3b39c379c200f9aa1fc12caf6f4067",
+      "keySha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "exam": "21_MPES_2026_FGV",
+      "officialQuestions": 60,
+      "included": 25,
+      "proofSha256": "bd73d21b73b317d41d993bd2b8fdb84779361de35b2cdd27dd2f238a2d432e3b",
+      "keySha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "exam": "22_MPRJ_2025_FGV",
+      "officialQuestions": 80,
+      "included": 64,
+      "proofSha256": "66b3d50d33dd08a224b4ba1915b6a9bb5391f796daa28223c7e9ab354ba1b7f1",
+      "keySha256": "35491e393080aa595e6981abee4df49dcf9af63555f4b2b47adfe47566941a93"
+    },
+    {
+      "exam": "23_SJC_2024_FGV",
+      "officialQuestions": 70,
+      "included": 49,
+      "proofSha256": "03ca12540ee87b84cc82d9a14c692411d95900bd7320501e568e8521498bfc36",
+      "keySha256": "a5049049d2773cffe5d37fc40f0d3a12e60fa8da1bc23547df223e41b1d90036"
+    },
+    {
+      "exam": "24_TCERR_2025_FGV",
+      "officialQuestions": 80,
+      "included": 47,
+      "proofSha256": "0a9ad04c570c08fbebacddc492341a29070546ee98f3d66c23fcfcfc50f0e27e",
+      "keySha256": "3b2fa2654a15869fdfb55f758f0d5d5032cc65ee356ac9fbcd7da187519b3cb9"
+    },
+    {
+      "exam": "25_TCERR_2025_FGV",
+      "officialQuestions": 80,
+      "included": 19,
+      "proofSha256": "1cc408dc0e73ca55977cf813d1f07da3c535745026919c185fbf30345dc32ef1",
+      "keySha256": "3b2fa2654a15869fdfb55f758f0d5d5032cc65ee356ac9fbcd7da187519b3cb9"
     }
   ],
-  "note": "Initial classification is suggested, not a reviewed subject taxonomy. All answers are matched to the type-1 final answer key; cancelled/ambiguous items are excluded."
+  "note": "Initial classification is suggested, not a reviewed subject taxonomy. All answers are matched to the type-1 final answer key; cancelled/ambiguous items are excluded. Identical stem/options across specialties are deduplicated before counting."
 }

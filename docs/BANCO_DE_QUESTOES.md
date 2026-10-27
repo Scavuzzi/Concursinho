@@ -1,6 +1,10 @@
 # Seu banco de questões
 
-O Concursinho inclui uma base inicial gratuita de **348 questões reais da FGV**, extraídas de oito provas públicas, com respostas conferidas nos respectivos gabaritos definitivos. São 12 disciplinas, incluindo Português, desenvolvimento, banco de dados e segurança. Essa base é um ponto de partida: não representa a cobertura completa do edital do TJPB.
+O Concursinho 1.2.0 inclui **931 questões oficiais distintas da FGV**, extraídas de 24 provas públicas de TI, com respostas conferidas nos respectivos gabaritos definitivos. São 12 disciplinas, incluindo Português, desenvolvimento, banco de dados e segurança. A ampliação acrescentou 583 questões à base anterior de 348. Isso ainda não representa a cobertura completa do edital do TJPB.
+
+As novas fontes abrangem MPU, CPRM, ALE-RO, MPES, MPRJ, São José dos Campos e TCE-RR. Questões com enunciado e alternativas idênticos entre especialidades foram contadas uma única vez. Nenhuma fonte Dataprev foi incorporada. A atualização da base preserva respostas e classificações pessoais anteriores.
+
+Há um [arquivo opcional de 62 questões autorais](../data/imports/questoes-autorais-opcionais.jsonl), que pode ser importado manualmente. Ele conserva o rótulo “Autoral (estilo FGV)” e não faz parte das 931 oficiais. O formato passou na validação; não houve revisão individual de todos os seus gabaritos.
 
 Abra **Questões** no desktop ou no Android. O aplicativo funciona offline, sem conta nem assinatura.
 
@@ -44,7 +48,7 @@ Campos opcionais incluem `board`, `year`, `role`, `explanation`, `sourceUrl`, `a
 
 O lote é importado em uma transação: uma linha inválida cancela a importação inteira. IDs ou conteúdos já existentes são ignorados, sem substituir o gabarito anterior. A infraestrutura foi testada com **10 mil questões**; esse número é um teste de capacidade, não a quantidade entregue.
 
-Não existe importação automática de qualquer PDF para questões. A ferramenta em `tools/build_question_bank.py` foi preparada para os modelos específicos de prova da base inicial. Adicionar provas de outros formatos exige adaptar a extração e conferir enunciados e gabaritos. Use materiais que você tenha autorização para armazenar; nenhuma plataforma paga foi copiada.
+Não existe importação automática de qualquer PDF para questões. A ferramenta em `tools/build_question_bank.py` foi preparada para os modelos específicos de prova da coleção. `tools/prepare_new_sources.py` registra os cargos selecionados e exige uma seção única do gabarito para o cargo e tipo corretos; `tools/verify_question_bank.py` verifica todos os registros, hashes e limites dos recortes. Adicionar provas de outros formatos exige adaptar a extração e conferir enunciados e gabaritos. Use materiais que você tenha autorização para armazenar; nenhuma plataforma paga foi copiada.
 
 ## Dados e cópias de segurança
 

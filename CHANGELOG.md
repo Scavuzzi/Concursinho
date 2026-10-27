@@ -1,5 +1,16 @@
 # Historico de mudancas
 
+## 2026-10-27 — 1.2.0, novas fontes de TI
+
+- Ampliada a base de 348 para 931 questões oficiais distintas, com 583 novas questões de 16 cadernos de TI e conferência nos gabaritos definitivos.
+- Incluídas fontes MPU, CPRM, ALE-RO, MPES, MPRJ, São José dos Campos e TCE-RR; Dataprev continua excluída.
+- Adicionados seleção explícita do cargo/tipo, manifesto com hashes, verificação integral dos registros e deduplicação entre especialidades.
+- Preservados histórico e classificação pessoal ao atualizar a base; adicionados testes da atualização em Python e Dart.
+- Atualizado o acervo Android para 25 provas e 45 PDFs; corrigido o total exibido na biblioteca.
+- Disponibilizadas 62 questões autorais em arquivo opcional, sem incorporá-las à contagem oficial.
+- Corrigida a aceitação de metadados opcionais nulos no importador desktop e a navegação do teste Android após rolagem.
+- Corrigido o retorno aos controles de questões longas; teste Android completo aprovado com renderização nativa, resposta, gráficos, persistência e atualização da base.
+
 ## 2026-10-27 — 1.1.0, banco de questões
 
 - Incluídas 348 questões reais da FGV, com referências e gabaritos definitivos, classificação sugerida e exclusão de anuladas e contexto incompleto.

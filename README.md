@@ -41,9 +41,9 @@ O Concursinho reúne o próximo assunto, o material e o tempo de foco em um mesm
 
 ## Banco de questões
 
-Comece com **348 questões reais da FGV**, em 12 disciplinas, disponíveis offline. Sorteie com ou sem filtros, registre os motivos dos erros e acompanhe gráficos por assunto, evolução e pontos de revisão. O banco aceita novos lotes JSON/JSONL; a classificação inicial é sugerida e pode ser ajustada por você.
+Comece com **931 questões oficiais distintas da FGV**, em 12 disciplinas, disponíveis offline. A versão 1.2.0 acrescenta 583 questões de 16 cadernos de TI. Sorteie com ou sem filtros, registre os motivos dos erros e acompanhe gráficos por assunto, evolução e pontos de revisão. O banco aceita novos lotes JSON/JSONL; a classificação inicial é sugerida e pode ser ajustada por você.
 
-Os gráficos por tópico usam a primeira resposta de cada questão no período. A base ainda não cobre todo o edital e os gabaritos não incluem comentários revisados. Consulte o [guia do banco de questões](docs/BANCO_DE_QUESTOES.md) para importação, critérios dos indicadores e backup. No Android, esse recurso pertence à versão **1.1.0**; o APK anterior 1.0.0 não o contém.
+Os gráficos por tópico usam a primeira resposta de cada questão no período. A base ainda não cobre todo o edital e os gabaritos não incluem comentários revisados. Consulte o [guia do banco de questões](docs/BANCO_DE_QUESTOES.md) para importação, critérios dos indicadores e backup. A atualização **1.2.0** acrescenta os registros ao SQLite preservando respostas e classificações pessoais. Há também um [lote opcional de 62 questões autorais](data/imports/questoes-autorais-opcionais.jsonl), identificado como não oficial e separado da base incluída.
 
 ## Por dentro do Android
 
@@ -77,7 +77,7 @@ O acervo preparado em **26/10/2026** é voltado a Desenvolvimento de Sistemas:
 | **146 tópicos** em **14 blocos** | **9 provas** e **9 gabaritos definitivos** | Edital consolidado e primeira retificação |
 | Busca, filtros e marcações | **2 espelhos de discursiva** | Fontes registradas no catálogo |
 
-São **22 PDFs no Android**. Provas resolvidas e assuntos estudados têm marcações independentes. Os materiais antigos da Dataprev não fazem parte desse acervo.
+O acervo original tem 22 PDFs. Com as novas fontes de TI, o Android reúne **25 cadernos e 45 arquivos PDF**, incluindo gabaritos compartilhados entre cargos, espelhos e editais. Provas resolvidas e assuntos estudados têm marcações independentes. Os materiais da Dataprev continuam fora desse acervo.
 
 No desktop, o checklist e os PDFs ficam na pasta de estudos, que pode estar no Obsidian. No Android, os dados e documentos acompanham o APK. A referência oficial do concurso continua sendo a [página da FGV](https://conhecimento.fgv.br/concursos/tjpb26).
 
@@ -200,12 +200,19 @@ Desktop, na raiz:
 python -m unittest -v test_main.py test_tjpb.py test_questions.py
 ```
 
+Para auditar a base e os PDFs, com PyMuPDF instalado:
+
+```bash
+python tools/verify_question_bank.py
+```
+
 Android, dentro de `mobile/`:
 
 ```bash
 flutter analyze
 flutter test
 flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d <dispositivo>
+flutter test integration_test/questions_test.dart -d <dispositivo>
 ```
 
 O teste integrado usa um PDF real e verifica renderização nativa, extração de texto, aparência, navegação, marcadores e persistência. Consulte o [registro de validação do APK](mobile/VALIDACAO.md) e o [histórico de mudanças](CHANGELOG.md).

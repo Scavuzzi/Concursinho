@@ -217,6 +217,21 @@ void main() {
     expect((await bank.report(subject: 'Segurança')).attempts, 0);
   });
   test(
+    'Nova revisão da base preserva respostas e classificação pessoal',
+    () async {
+      await bank.seed('v1', batch([fixture(1)]));
+      final q = BankQuestion.fromJson(fixture(1));
+      await bank.answer(q, 1, eventId: 'before-upgrade', durationMs: 1);
+      await bank.reclassify(q, 'Minha disciplina', 'Meu tópico');
+      await bank.seed('v2', batch([fixture(1), fixture(2)]));
+      await bank.seed('v2', batch([fixture(1), fixture(2)]));
+      expect(await bank.count(), 2);
+      final report = await bank.report();
+      expect(report.attempts, 1);
+      expect(report.topics.single.subject, 'Minha disciplina');
+    },
+  );
+  test(
     'Banco com 10000 itens mantém sorteio, filtros e deduplicação funcionais',
     () async {
       await bank.importLines(

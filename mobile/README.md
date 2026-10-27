@@ -4,9 +4,9 @@ Aplicativo Flutter instalado por APK, com renderização nativa de PDF via PDFiu
 
 ## O que está incluído
 
-- Versão 1.1.0: aba Questões, com 348 questões reais da FGV, filtros, sorteio, histórico, motivos de erro e gráficos locais. Importação JSON/JSONL e ajuste de classificação. Veja o [guia do banco](../docs/BANCO_DE_QUESTOES.md).
+- Versão 1.2.0: aba Questões, com 931 questões oficiais distintas da FGV, filtros, sorteio, histórico, motivos de erro e gráficos locais. Atualização da base preserva o histórico existente. Importação JSON/JSONL e ajuste de classificação. Veja o [guia do banco](../docs/BANCO_DE_QUESTOES.md).
 - Checklist TJPB: 146 tópicos em 14 blocos, com busca e progresso local.
-- Nove provas, nove gabaritos definitivos e dois espelhos, separados. Edital consolidado e primeira retificação: 22 PDFs no APK.
+- 25 cadernos de prova, com seus gabaritos definitivos, dois espelhos, edital consolidado e primeira retificação: 45 arquivos PDF no APK. Alguns gabaritos são compartilhados entre cargos, com página inicial própria.
 - Leitor Original: páginas com zoom, navegação e filtros claro/sépia/noite.
 - Modo Leitura: texto extraído por página, três fontes locais, tamanho 14–34, entrelinhas, margens, alinhamento e suavização da luz.
 - Retomada por documento, marcadores de página e importação de PDF pelo seletor do Android.
@@ -42,9 +42,12 @@ Teste Android com PDF real:
 
 ```powershell
 flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d emulator-5580
+flutter test integration_test/questions_test.dart -d emulator-5580
 ```
 
 A captura automática do Flutter usada neste emulador não inclui a imagem assíncrona do `PdfViewer`. O teste verifica os pixels produzidos pelo renderizador nativo; a página Original do APK release também é conferida por captura do próprio Android, separadamente. As capturas locais ficam em `test_artifacts/` (ignoradas pelo Git).
+
+Para capturar a tela de questões pelo driver, acrescente `--dart-define=CAPTURE_QUESTIONS=true` ao comando `flutter drive` usando `integration_test/questions_test.dart` como alvo. A execução direta não depende das capturas.
 
 ## Interface
 

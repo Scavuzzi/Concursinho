@@ -9,8 +9,17 @@ import 'package:concursinho_mobile/main.dart';
 import 'package:concursinho_mobile/question_bank.dart';
 import 'package:concursinho_mobile/study_state.dart';
 
+Future<void> tapVisible(WidgetTester tester, Finder finder) async {
+  await tester.ensureVisible(finder);
+  await tester.pumpAndSettle();
+  expect(finder.hitTestable(), findsOneWidget);
+  await tester.tap(finder);
+  await tester.pumpAndSettle();
+}
+
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+  const capture = bool.fromEnvironment('CAPTURE_QUESTIONS');
   testWidgets(
     'Banco real no Android: recorte PDF, resposta, motivo, gráfico e persistência',
     (tester) async {
@@ -34,8 +43,10 @@ void main() {
       await state.load();
       await tester.pumpWidget(ConcursinhoApp(state: state, questionBank: bank));
       await tester.pumpAndSettle();
-      await binding.convertFlutterSurfaceToImage();
-      await tester.pumpAndSettle();
+      if (capture) {
+        await binding.convertFlutterSurfaceToImage();
+        await tester.pumpAndSettle();
+      }
       await tester.tap(find.text('Questões').last);
       await tester.pumpAndSettle();
       for (
@@ -46,9 +57,7 @@ void main() {
         await tester.pump(const Duration(milliseconds: 200));
       }
       final draw = find.byKey(const Key('draw-question'));
-      await tester.ensureVisible(draw);
-      await tester.tap(draw);
-      await tester.pumpAndSettle();
+      await tapVisible(tester, draw);
       for (
         var i = 0;
         i < 30 && find.text('Ler como texto').evaluate().isEmpty;
@@ -83,18 +92,12 @@ void main() {
       expect(ink, greaterThan(500));
       image.dispose();
       await doc.dispose();
-      await tester.ensureVisible(find.text('Ler como texto'));
-      await tester.tap(find.text('Ler como texto'));
-      await tester.pumpAndSettle();
-      await binding.takeScreenshot('05-questoes');
+      await tapVisible(tester, find.text('Ler como texto'));
+      if (capture) await binding.takeScreenshot('05-questoes');
       final wrong = ((question['answer'] as int) + 1) % 5;
       final alternative = find.byKey(Key('answer-$wrong'));
-      await tester.ensureVisible(alternative);
-      await tester.tap(alternative);
-      await tester.pump();
-      await tester.ensureVisible(find.text('Confirmar resposta'));
-      await tester.tap(find.text('Confirmar resposta'));
-      await tester.pumpAndSettle();
+      await tapVisible(tester, alternative);
+      await tapVisible(tester, find.text('Confirmar resposta'));
       for (
         var i = 0;
         i < 30 && find.text('Vamos entender esse erro.').evaluate().isEmpty;
@@ -103,17 +106,14 @@ void main() {
         await tester.pump(const Duration(milliseconds: 200));
       }
       expect(find.text('Vamos entender esse erro.'), findsOneWidget);
-      await tester.ensureVisible(find.text('Interpretação'));
-      await tester.tap(find.text('Interpretação'));
-      await tester.pumpAndSettle();
-      await tester.drag(
+      await tapVisible(tester, find.text('Interpretação'));
+      final questionList = tester.widget<SingleChildScrollView>(
         find.byKey(const PageStorageKey('questions-scroll')),
-        const Offset(0, 5000),
       );
+      questionList.controller!.jumpTo(0);
       await tester.pumpAndSettle();
-      await tester.ensureVisible(find.text('Desempenho'));
-      await tester.tap(find.text('Desempenho'));
-      await tester.pumpAndSettle();
+      expect(questionList.controller!.offset, 0);
+      await tapVisible(tester, find.text('Desempenho'));
       for (
         var i = 0;
         i < 30 && find.text('Amostra inicial').evaluate().isEmpty;
@@ -128,13 +128,21 @@ void main() {
       expect(find.text('Amostra inicial'), findsOneWidget);
       await tester.ensureVisible(find.text('Por assunto e tópico'));
       await tester.pumpAndSettle();
-      await binding.takeScreenshot('06-desempenho-teste');
+      if (capture) await binding.takeScreenshot('06-desempenho-teste');
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
       await tester.pumpAndSettle();
       state.dispose();
       await bank.close();
       final restored = await QuestionBank.open('${dir.path}/questions.sqlite3');
+      expect((await restored.report()).attempts, 1);
+      await restored.seed('native-v2', Stream.fromIterable(lines));
+      expect(
+        await restored.count(),
+        lines.where((line) => line.trim().isNotEmpty).length,
+      );
+      expect((await restored.report()).attempts, 1);
+      await restored.seed('native-v2', Stream.fromIterable(lines));
       expect((await restored.report()).attempts, 1);
       await restored.close();
     },

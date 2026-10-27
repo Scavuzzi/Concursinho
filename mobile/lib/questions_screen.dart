@@ -54,7 +54,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           );
       if (widget.bank == null) {
         await bank.seed(
-          'fgv-2026-10-27-v1',
+          'fgv-2026-10-27-v2',
           Stream.fromIterable(
             const LineSplitter().convert(
               await rootBundle.loadString('assets/data/questoes.jsonl'),
@@ -1005,73 +1005,80 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   );
 
   @override
-  Widget build(BuildContext context) => ListView(
+  Widget build(BuildContext context) => SingleChildScrollView(
     controller: _scroll,
     key: const PageStorageKey('questions-scroll'),
     padding: const EdgeInsets.fromLTRB(24, 14, 24, 36),
-    children: [
-      Row(
-        children: [
-          const Expanded(
-            child: Text(
-              'QUESTÕES',
-              style: TextStyle(
-                letterSpacing: 2,
-                color: _ochre,
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Row(
+          children: [
+            const Expanded(
+              child: Text(
+                'QUESTÕES',
+                style: TextStyle(
+                  letterSpacing: 2,
+                  color: _ochre,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-          IconButton(
-            tooltip: 'Importar banco de questões',
-            onPressed: _busy || _bank == null ? null : _import,
-            icon: const Icon(Icons.add_to_photos_outlined),
-          ),
-        ],
-      ),
-      const SizedBox(height: 12),
-      SegmentedButton<bool>(
-        segments: const [
-          ButtonSegment(
-            value: false,
-            label: Text('Praticar'),
-            icon: Icon(Icons.shuffle),
-          ),
-          ButtonSegment(
-            value: true,
-            label: Text('Desempenho'),
-            icon: Icon(Icons.bar_chart),
-          ),
-        ],
-        selected: {_analytics},
-        onSelectionChanged: (s) {
-          setState(() {
-            _analytics = s.first;
-            _refreshReport();
-          });
-          if (_scroll.hasClients) _scroll.jumpTo(0);
-        },
-      ),
-      const SizedBox(height: 22),
-      if (_error != null)
-        Text(_error!)
-      else if (_bank == null)
-        const Center(child: CircularProgressIndicator())
-      else ...[
-        if (_busy)
-          const Padding(
-            padding: EdgeInsets.only(bottom: 15),
-            child: LinearProgressIndicator(),
-          ),
-        _analytics ? _performance() : _practice(),
-        const SizedBox(height: 20),
-        const Text(
-          'Base inicial de provas públicas, com classificação sugerida e gabaritos definitivos, ainda sem comentários revisados. Questões importadas usam as informações do lote. Seus resultados ficam neste aparelho.',
-          style: TextStyle(fontSize: 11, height: 1.5, color: Color(0xff67796d)),
+            IconButton(
+              tooltip: 'Importar banco de questões',
+              onPressed: _busy || _bank == null ? null : _import,
+              icon: const Icon(Icons.add_to_photos_outlined),
+            ),
+          ],
         ),
+        const SizedBox(height: 12),
+        SegmentedButton<bool>(
+          segments: const [
+            ButtonSegment(
+              value: false,
+              label: Text('Praticar'),
+              icon: Icon(Icons.shuffle),
+            ),
+            ButtonSegment(
+              value: true,
+              label: Text('Desempenho'),
+              icon: Icon(Icons.bar_chart),
+            ),
+          ],
+          selected: {_analytics},
+          onSelectionChanged: (s) {
+            setState(() {
+              _analytics = s.first;
+              _refreshReport();
+            });
+            if (_scroll.hasClients) _scroll.jumpTo(0);
+          },
+        ),
+        const SizedBox(height: 22),
+        if (_error != null)
+          Text(_error!)
+        else if (_bank == null)
+          const Center(child: CircularProgressIndicator())
+        else ...[
+          if (_busy)
+            const Padding(
+              padding: EdgeInsets.only(bottom: 15),
+              child: LinearProgressIndicator(),
+            ),
+          _analytics ? _performance() : _practice(),
+          const SizedBox(height: 20),
+          const Text(
+            'Base inicial de provas públicas, com classificação sugerida e gabaritos definitivos, ainda sem comentários revisados. Questões importadas usam as informações do lote. Seus resultados ficam neste aparelho.',
+            style: TextStyle(
+              fontSize: 11,
+              height: 1.5,
+              color: Color(0xff67796d),
+            ),
+          ),
+        ],
       ],
-    ],
+    ),
   );
   @override
   void dispose() {

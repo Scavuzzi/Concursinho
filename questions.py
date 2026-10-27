@@ -28,6 +28,7 @@ def validate_question(raw):
     if type(q.get("answer")) is not int or not 0<=q["answer"]<len(choices):
         raise ValueError("Gabarito inválido.")
     for field in ["explanation","board","role","sourceUrl","answerSourceUrl"]:
+        if q.get(field) is None:q[field]=""
         if not isinstance(q.get(field,""),str): raise ValueError(f"Campo {field} inválido.")
         q.setdefault(field,"")
     return q
@@ -94,7 +95,7 @@ class QuestionBank:
                 self.db.execute("INSERT OR REPLACE INTO metadata VALUES (?,?)",(f"seed:{seed_revision}","done"))
             return {"added":after-before,"duplicates":accepted-(after-before),"excluded":excluded}
 
-    def seed(self,path,revision="fgv-2026-10-27-v1"):
+    def seed(self,path,revision="fgv-2026-10-27-v2"):
         with self.lock:
             if self.db.execute("SELECT 1 FROM metadata WHERE key=?",(f"seed:{revision}",)).fetchone():return
             with Path(path).open(encoding="utf-8") as records:

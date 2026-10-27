@@ -120,6 +120,198 @@
       "kind": "gabarito_definitivo",
       "url": "https://www.estudegratis.com.br/images/provas/22789-faperp-2012-tj-pb-analista-judiciario-tecnologia-da-informacao-gabarito.pdf",
       "sha256": "503574adfa3fd5ebb5f0ff8dbac61008853455b12720786719fdea740d3576da"
+    },
+    {
+      "folder": "10_MPU_2025_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/a06-analista-do-mpu-desenvolvimento-de-sistemasa06-tipo-1.pdf",
+      "sha256": "8ffcfd67cbf1adda266da959bad51e89ab393b9735f44f2391475ba104fcbd82"
+    },
+    {
+      "folder": "10_MPU_2025_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/mpu-gabarito-definitivo.pdf",
+      "sha256": "d0c27eef45936e146408ea305f28902bc88e7436fb2bed15819ce22c450a1493"
+    },
+    {
+      "folder": "11_CPRM_2025_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/analista-em-geociencias-analise-e-desenvolvimento-de-sistemas-cns02e02-tipo-1.pdf",
+      "sha256": "32e602ccc224ba4d3bfdf581a0497c4a980c41e27ebf296218c69e121b152c33"
+    },
+    {
+      "folder": "11_CPRM_2025_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/gabarito-definitivo-cprm.pdf",
+      "sha256": "9f7e8002ec6a5db65229ccbf68eb890f3d33153bbca7a45ad90b43a6ce6322df"
+    },
+    {
+      "folder": "12_ALERO_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/cnsal25-analista-legislativo-tecnologia-da-informacao-analise-e-desenvolvimento-de-sistemas-cnsal25-tipo-1.pdf",
+      "sha256": "d28c9514828f5cf47c41d2087a8ece275832c13fab4c2571ad04ca31d420a0f5"
+    },
+    {
+      "folder": "12_ALERO_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/ale_ro-gabarito-definitivo.pdf",
+      "sha256": "eb2ec96e998d7813ea130305954a45e3987d951476df46ad8fd7c7a88645f95c"
+    },
+    {
+      "folder": "13_ALERO_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/cnsal26-analista-legislativo-tecnologia-da-informacao-banco-de-dados-cnsal26-tipo-1.pdf",
+      "sha256": "88e188211ef9bb5b3d3efb667af20bcd3002ae23d7239d7534f6db0260ea2041"
+    },
+    {
+      "folder": "13_ALERO_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/ale_ro-gabarito-definitivo.pdf",
+      "sha256": "eb2ec96e998d7813ea130305954a45e3987d951476df46ad8fd7c7a88645f95c"
+    },
+    {
+      "folder": "14_ALERO_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/cnsal27-analista-legislativo-tecnologia-da-informacao-infraestrutura-de-redes-e-comunicacao-cnsal27-tipo-1.pdf",
+      "sha256": "95ec8098f8db8c7d94a92a9de5966da28cb1339aa390a5c988de2ce11487d097"
+    },
+    {
+      "folder": "14_ALERO_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/ale_ro-gabarito-definitivo.pdf",
+      "sha256": "eb2ec96e998d7813ea130305954a45e3987d951476df46ad8fd7c7a88645f95c"
+    },
+    {
+      "folder": "15_MPES_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/agente-especializado-analista-de-sistemas-cns204-tipo-1.pdf",
+      "sha256": "77be12c91faeeaede45da2ee9c17d0bb22e8efcdc1d91b514d01c803a6bb6ca7"
+    },
+    {
+      "folder": "15_MPES_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/gabarito-definitivo-mpes-servidor-31082026.pdf",
+      "sha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "folder": "16_MPES_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/agente-especializado-analista-de-experiencia-do-usuario-ux-cns201-tipo-1.pdf",
+      "sha256": "f5864a24cfd6f0617cda45a0a0118c4bcd390d341e6e10aec0e964d1b5675851"
+    },
+    {
+      "folder": "16_MPES_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/gabarito-definitivo-mpes-servidor-31082026.pdf",
+      "sha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "folder": "17_MPES_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/agente-especializado-analista-de-infraestrutura-cns202-tipo-1.pdf",
+      "sha256": "b06843c56b50b1cdd597dd7087a7caced174aeaf9d7d6a168586aa484846ed0d"
+    },
+    {
+      "folder": "17_MPES_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/gabarito-definitivo-mpes-servidor-31082026.pdf",
+      "sha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "folder": "18_MPES_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/agente-especializado-analista-de-seguranca-da-informacao-cns203-tipo-1.pdf",
+      "sha256": "5fe62c68dff7d82cdb4a8dc2571ad276a8d2bed0d4752746b82da74b1ab3378c"
+    },
+    {
+      "folder": "18_MPES_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/gabarito-definitivo-mpes-servidor-31082026.pdf",
+      "sha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "folder": "19_MPES_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/agente-especializado-cientista-de-dados-e-inteligencia-de-negocios-cns205-tipo-1.pdf",
+      "sha256": "cb84dde0a3a1f37dfcc94d956495e98a703a03efd7d3bdc27377f8249fa4a7f9"
+    },
+    {
+      "folder": "19_MPES_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/gabarito-definitivo-mpes-servidor-31082026.pdf",
+      "sha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "folder": "20_MPES_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/agente-especializado-engenheiro-de-dados-cns206-tipo-1.pdf",
+      "sha256": "307d572c6ce6db01229f884543f2f6c84c3b39c379c200f9aa1fc12caf6f4067"
+    },
+    {
+      "folder": "20_MPES_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/gabarito-definitivo-mpes-servidor-31082026.pdf",
+      "sha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "folder": "21_MPES_2026_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/agente-tecnico-qualidade-e-testes-de-software-cns130-tipo-1.pdf",
+      "sha256": "bd73d21b73b317d41d993bd2b8fdb84779361de35b2cdd27dd2f238a2d432e3b"
+    },
+    {
+      "folder": "21_MPES_2026_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/gabarito-definitivo-mpes-servidor-31082026.pdf",
+      "sha256": "f734a718ac1238502cc3b376da50c9eb05ef719d20dadf607fa1d2a0b8845c06"
+    },
+    {
+      "folder": "22_MPRJ_2025_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/analista-do-ministerio-publico-area-administrativa-tecnologia-da-informacaocns102-tipo-1.pdf",
+      "sha256": "66b3d50d33dd08a224b4ba1915b6a9bb5391f796daa28223c7e9ab354ba1b7f1"
+    },
+    {
+      "folder": "22_MPRJ_2025_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/gabaritodefinitivo09.09_mprjanalista.pdf",
+      "sha256": "35491e393080aa595e6981abee4df49dcf9af63555f4b2b47adfe47566941a93"
+    },
+    {
+      "folder": "23_SJC_2024_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/analista-em-gestao-municipal-tecnologia-da-informacao-cns001-tipo-1.pdf",
+      "sha256": "03ca12540ee87b84cc82d9a14c692411d95900bd7320501e568e8521498bfc36"
+    },
+    {
+      "folder": "23_SJC_2024_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/sjctecnologia2024_gabarito_definitivo_20240208.pdf",
+      "sha256": "a5049049d2773cffe5d37fc40f0d3a12e60fa8da1bc23547df223e41b1d90036"
+    },
+    {
+      "folder": "24_TCERR_2025_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/analista-administrativo-tecnologia-com-especialidade-em-desenvolvimento-de-sistemascns401-tipo-1.pdf",
+      "sha256": "0a9ad04c570c08fbebacddc492341a29070546ee98f3d66c23fcfcfc50f0e27e"
+    },
+    {
+      "folder": "24_TCERR_2025_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/gabarito_definitivo_tcerr_auditor-e-analista_ap01.pdf",
+      "sha256": "3b2fa2654a15869fdfb55f758f0d5d5032cc65ee356ac9fbcd7da187519b3cb9"
+    },
+    {
+      "folder": "25_TCERR_2025_FGV",
+      "kind": "prova",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/analista-administrativo-tecnologia-com-especialidade-em-banco-de-dadoscns402-tipo-1.pdf",
+      "sha256": "1cc408dc0e73ca55977cf813d1f07da3c535745026919c185fbf30345dc32ef1"
+    },
+    {
+      "folder": "25_TCERR_2025_FGV",
+      "kind": "gabarito_definitivo",
+      "url": "https://conhecimento.fgv.br/sites/default/files/concursos/gabarito_definitivo_tcerr_auditor-e-analista_ap01.pdf",
+      "sha256": "3b2fa2654a15869fdfb55f758f0d5d5032cc65ee356ac9fbcd7da187519b3cb9"
     }
   ],
   "official_editals": [

@@ -17,18 +17,18 @@ class MemoryStorage implements StudyStorage {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   test(
-    'Acervo contém 146 tópicos, nove provas e apenas os 22 PDFs autorizados',
+    'Acervo contém 146 tópicos, 25 provas de TI e documentos sem Dataprev',
     () async {
       final catalog = await StudyCatalog.load();
       expect(catalog.topics.length, 146);
       expect(catalog.groups.length, 14);
-      expect(catalog.exams.length, 9);
-      expect(catalog.documents.length, 22);
+      expect(catalog.exams.length, 25);
+      expect(catalog.documents.length, 54);
       expect(
         catalog.documents.where((e) => e.id.toLowerCase().contains('dataprev')),
         isEmpty,
       );
-      expect(catalog.documents.map((e) => e.id).toSet().length, 22);
+      expect(catalog.documents.map((e) => e.id).toSet().length, 54);
       for (final exam in catalog.exams) {
         expect(exam.documents.containsKey('prova'), isTrue);
         expect(exam.documents.containsKey('gabarito_definitivo'), isTrue);

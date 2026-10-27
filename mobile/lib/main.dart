@@ -265,7 +265,7 @@ class _StudyHomeState extends State<StudyHome> with WidgetsBindingObserver {
               showLicensePage(
                 context: context,
                 applicationName: 'Concursinho',
-                applicationVersion: '1.1.0',
+                applicationVersion: '1.2.0',
               );
             },
           ),
@@ -527,7 +527,7 @@ class _StudyHomeState extends State<StudyHome> with WidgetsBindingObserver {
       _headline('Provas na mão.'),
       const SizedBox(height: 12),
       Text(
-        '${study.examCount} de 9 provas resolvidas · disponíveis offline',
+        '${study.examCount} de ${study.catalog.exams.length} provas resolvidas · disponíveis offline',
         style: const TextStyle(color: Color(0xff67796d)),
       ),
       const SizedBox(height: 18),
