@@ -1,0 +1,83 @@
+{
+  "revision": "2026-10-27",
+  "included": 348,
+  "subjects": {
+    "Língua Portuguesa": 117,
+    "Desenvolvimento de sistemas": 54,
+    "Redes e sistemas": 19,
+    "Arquitetura de software": 32,
+    "Segurança da informação": 32,
+    "Gestão e governança de TI": 13,
+    "Engenharia de software": 20,
+    "DevOps e nuvem": 17,
+    "Banco de dados": 33,
+    "Inteligência artificial": 3,
+    "Interfaces e acessibilidade": 3,
+    "Raciocínio lógico": 5
+  },
+  "excluded": {
+    "unclassified": 174,
+    "outside_ti_scope": 20,
+    "cancelled": 15,
+    "shared_context": 23
+  },
+  "exams": [
+    {
+      "exam": "01_TJRR_2024_FGV",
+      "officialQuestions": 70,
+      "included": 47,
+      "proofSha256": "39dd205b33f93c7492c6d4e37a698590486287c842cd7b1bbb47dd68c9560495",
+      "keySha256": "f36773ab48f52039f52bd5da2f8d8a14407d8c619427e834f9dc927a9688ce95"
+    },
+    {
+      "exam": "02_TJAP_2024_FGV",
+      "officialQuestions": 80,
+      "included": 57,
+      "proofSha256": "cdc2c4bda2264c2e95f794e9ef12b74e1e71db5b3f74f0b14ffac20c8621cfa9",
+      "keySha256": "b749747622d019ea9363baf79fd4d1eab39c82a141172efe31f68efa20d8e3c5"
+    },
+    {
+      "exam": "03_TJRJ_2026_FGV",
+      "officialQuestions": 70,
+      "included": 49,
+      "proofSha256": "a886307fb6776e4acb68d8e52041166c1b160ea9f9bf3e22f9bc59bbe88a59cf",
+      "keySha256": "05b1259bd7cb248e5cdc82d2f99bc941f74c04ebe1f6ea22d7b8bd4054223521"
+    },
+    {
+      "exam": "04_TJSC_2026_FGV",
+      "officialQuestions": 80,
+      "included": 50,
+      "proofSha256": "ffcfac9b8e03fde509f9263df7652d5995f87cd488adc5d6b3796b81994c5b34",
+      "keySha256": "39f13fb552eff318632a962e091753d7504c269b1f99889649cc184c93a81f43"
+    },
+    {
+      "exam": "05_TJRN_2023_FGV",
+      "officialQuestions": 70,
+      "included": 42,
+      "proofSha256": "02ff2380af2e841a5df50f0066621184ff04919721a801ced1d5e4e20379a38b",
+      "keySha256": "094e8fe5b0c3b4c89ef15ff09e4b26abb82a864c7596ff735c46908f16c15564"
+    },
+    {
+      "exam": "06_TJDFT_2022_FGV",
+      "officialQuestions": 60,
+      "included": 32,
+      "proofSha256": "312d33b997ea56995cec8a3705986dd679e0ed305fd2d5827f2beb290e12d28d",
+      "keySha256": "6b2c4fa00f4123c8b0e16f549abcf573ddf7bc79d73d1a8ea164907302661502"
+    },
+    {
+      "exam": "07_TJSE_2023_FGV",
+      "officialQuestions": 70,
+      "included": 27,
+      "proofSha256": "f117c94274ea4cc13b54f5078b8af01424a08fbe5e16e7b97864fa439f0fc437",
+      "keySha256": "9b110bf1986f6604c2fbf941653b8a66031dae30ed25cf1d54f01b4313c191c7"
+    },
+    {
+      "exam": "08_TRF1_2024_FGV",
+      "officialQuestions": 80,
+      "included": 44,
+      "proofSha256": "603b0c6d7e0da03ca8cf57ede9bda184a3aad4633d7f1ef9e5caf3af25f88885",
+      "keySha256": "7e5463bc0e9632ee6bb75f2ea094a2413f426e5da2f9f2763dcaa8bda40a15b2"
+    }
+  ],
+  "note": "Initial classification is suggested, not a reviewed subject taxonomy. All answers are matched to the type-1 final answer key; cancelled/ambiguous items are excluded."
+}

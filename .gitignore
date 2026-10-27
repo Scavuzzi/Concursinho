@@ -13,3 +13,7 @@ tray.log
 Materiais/
 Codigo/
 .audit-runtime/
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm

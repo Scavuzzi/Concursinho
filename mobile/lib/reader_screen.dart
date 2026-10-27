@@ -31,7 +31,13 @@ class ReadingPalette {
 class ReaderScreen extends StatefulWidget {
   final StudyState state;
   final StudyDocument item;
-  const ReaderScreen({super.key, required this.state, required this.item});
+  final int? initialPage;
+  const ReaderScreen({
+    super.key,
+    required this.state,
+    required this.item,
+    this.initialPage,
+  });
   @override
   State<ReaderScreen> createState() => _ReaderScreenState();
 }
@@ -48,7 +54,10 @@ class _ReaderScreenState extends State<ReaderScreen> {
   @override
   void initState() {
     super.initState();
-    _page = widget.state.positions[widget.item.id] ?? widget.item.initialPage;
+    _page =
+        widget.initialPage ??
+        widget.state.positions[widget.item.id] ??
+        widget.item.initialPage;
     unawaited(_load());
   }
 

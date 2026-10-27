@@ -8,6 +8,8 @@ import 'package:pdfrx/pdfrx.dart';
 import 'package:flutter/foundation.dart';
 import 'reader_screen.dart';
 import 'study_state.dart';
+import 'question_bank.dart';
+import 'questions_screen.dart';
 
 /*
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀       ⢠⣦⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -84,7 +86,8 @@ Future<void> main() async {
 
 class ConcursinhoApp extends StatelessWidget {
   final StudyState state;
-  const ConcursinhoApp({super.key, required this.state});
+  final QuestionBank? questionBank;
+  const ConcursinhoApp({super.key, required this.state, this.questionBank});
   @override
   Widget build(BuildContext context) => MaterialApp(
     title: 'Concursinho',
@@ -117,19 +120,21 @@ class ConcursinhoApp extends StatelessWidget {
       ),
       dividerColor: forest.withValues(alpha: .12),
     ),
-    home: StudyHome(state: state),
+    home: StudyHome(state: state, questionBank: questionBank),
   );
 }
 
 class StudyHome extends StatefulWidget {
   final StudyState state;
-  const StudyHome({super.key, required this.state});
+  final QuestionBank? questionBank;
+  const StudyHome({super.key, required this.state, this.questionBank});
   @override
   State<StudyHome> createState() => _StudyHomeState();
 }
 
 class _StudyHomeState extends State<StudyHome> with WidgetsBindingObserver {
   int _tab = 0;
+  bool _questionsOpened = false;
   String _topicQuery = '', _examQuery = '';
   StudyState get study => widget.state;
   @override
@@ -260,7 +265,7 @@ class _StudyHomeState extends State<StudyHome> with WidgetsBindingObserver {
               showLicensePage(
                 context: context,
                 applicationName: 'Concursinho',
-                applicationVersion: '1.0.0',
+                applicationVersion: '1.1.0',
               );
             },
           ),
@@ -772,7 +777,14 @@ class _StudyHomeState extends State<StudyHome> with WidgetsBindingObserver {
             Expanded(
               child: IndexedStack(
                 index: _tab,
-                children: [_plan(), _exams(), _focus()],
+                children: [
+                  _plan(),
+                  _exams(),
+                  _questionsOpened
+                      ? QuestionsScreen(study: study, bank: widget.questionBank)
+                      : const SizedBox(),
+                  _focus(),
+                ],
               ),
             ),
           ],
@@ -780,7 +792,10 @@ class _StudyHomeState extends State<StudyHome> with WidgetsBindingObserver {
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _tab,
-        onDestinationSelected: (index) => setState(() => _tab = index),
+        onDestinationSelected: (index) => setState(() {
+          _tab = index;
+          if (index == 2) _questionsOpened = true;
+        }),
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.route_outlined),
@@ -791,6 +806,11 @@ class _StudyHomeState extends State<StudyHome> with WidgetsBindingObserver {
             icon: Icon(Icons.library_books_outlined),
             selectedIcon: Icon(Icons.library_books),
             label: 'Provas',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.quiz_outlined),
+            selectedIcon: Icon(Icons.quiz),
+            label: 'Questões',
           ),
           NavigationDestination(
             icon: Icon(Icons.timer_outlined),

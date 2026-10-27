@@ -14,6 +14,7 @@ from pathlib import Path
 import customtkinter as ctk
 
 from tjpb import TjpbPanel
+from question_panel import QuestionPanel
 
 try:
     from PIL import Image, ImageDraw, ImageFont, ImageTk
@@ -839,6 +840,7 @@ class PomodoroApp(ctk.CTk):
         self.study_tab = self.tabs.add("Estudo")
         self.review_tab = self.tabs.add("Revisão")
         self.tjpb_tab = self.tabs.add("TJPB 2026")
+        self.questions_tab = self.tabs.add("Questões")
         self.settings_tab = self.tabs.add("Configurações")
 
         self.create_study_tab()
@@ -847,6 +849,7 @@ class PomodoroApp(ctk.CTk):
         self.tjpb_panel = TjpbPanel(
             self, self.tjpb_tab, ctk, THEME, read_json, write_json, TJPB_PROGRESS_FILE
         )
+        self.questions_panel = QuestionPanel(self,self.questions_tab,ctk,THEME)
         self.tabs.set("TJPB 2026")
 
     def create_study_tab(self) -> None:

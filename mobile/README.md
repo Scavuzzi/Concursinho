@@ -4,6 +4,7 @@ Aplicativo Flutter instalado por APK, com renderização nativa de PDF via PDFiu
 
 ## O que está incluído
 
+- Versão 1.1.0: aba Questões, com 348 questões reais da FGV, filtros, sorteio, histórico, motivos de erro e gráficos locais. Importação JSON/JSONL e ajuste de classificação. Veja o [guia do banco](../docs/BANCO_DE_QUESTOES.md).
 - Checklist TJPB: 146 tópicos em 14 blocos, com busca e progresso local.
 - Nove provas, nove gabaritos definitivos e dois espelhos, separados. Edital consolidado e primeira retificação: 22 PDFs no APK.
 - Leitor Original: páginas com zoom, navegação e filtros claro/sépia/noite.
@@ -23,6 +24,8 @@ O APK é para instalação pessoal e usa a assinatura local de desenvolvimento g
 ## Dados
 
 As marcações, preferências e páginas ficam no diretório privado do aplicativo, em JSON com cópia de recuperação. Os PDFs importados são copiados para esse diretório. Desinstalar o app pode apagar esses dados: exporte as marcações se quiser transportá-las. O JSON de marcações não contém os PDFs importados nem as preferências do leitor.
+
+Questões e respostas usam SQLite no diretório privado. O CSV exporta indicadores, sem restaurar o histórico. Não há sincronização com o computador nem backup completo do banco pela interface Android nesta versão.
 
 ## Compilar e verificar
 

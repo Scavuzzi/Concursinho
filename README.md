@@ -37,6 +37,13 @@ O Concursinho reúne o próximo assunto, o material e o tempo de foco em um mesm
 | Fonte, tamanho e aparência | Conforme o leitor externo | Ajustáveis no modo Leitura |
 | Foco e histórico | Pomodoro por disciplina | Pomodoro e minutos concluídos |
 | Marcações TJPB | Arquivo JSON local | Importação e exportação de JSON |
+| Banco de questões | SQLite, sorteio e diagnóstico | SQLite, sorteio e diagnóstico |
+
+## Banco de questões
+
+Comece com **348 questões reais da FGV**, em 12 disciplinas, disponíveis offline. Sorteie com ou sem filtros, registre os motivos dos erros e acompanhe gráficos por assunto, evolução e pontos de revisão. O banco aceita novos lotes JSON/JSONL; a classificação inicial é sugerida e pode ser ajustada por você.
+
+Os gráficos por tópico usam a primeira resposta de cada questão no período. A base ainda não cobre todo o edital e os gabaritos não incluem comentários revisados. Consulte o [guia do banco de questões](docs/BANCO_DE_QUESTOES.md) para importação, critérios dos indicadores e backup. No Android, esse recurso pertence à versão **1.1.0**; o APK anterior 1.0.0 não o contém.
 
 ## Por dentro do Android
 
@@ -190,7 +197,7 @@ Concursinho/
 Desktop, na raiz:
 
 ```bash
-python -m unittest -v test_main.py test_tjpb.py
+python -m unittest -v test_main.py test_tjpb.py test_questions.py
 ```
 
 Android, dentro de `mobile/`:

@@ -1,5 +1,14 @@
 # Historico de mudancas
 
+## 2026-10-27 — 1.1.0, banco de questões
+
+- Incluídas 348 questões reais da FGV, com referências e gabaritos definitivos, classificação sugerida e exclusão de anuladas e contexto incompleto.
+- Adicionados SQLite, filtros, sorteio com ciclo opcional sem repetição, respostas, motivos de erro e diagnóstico no desktop e Android.
+- Adicionados indicadores por primeira resposta no período, cautela para amostras pequenas, revisão e recomendações locais.
+- Adicionadas importação JSON/JSONL com transação e deduplicação, edição de assunto e exportação CSV. Backup completo de SQLite disponível no desktop.
+- Adicionado recorte original de PDF no Android e abertura na página de origem.
+- Documentados formato de importação, limites e armazenamento em `docs/BANCO_DE_QUESTOES.md`.
+
 ## 2026-10-27 — consolidação e documentação
 
 - Resolvidos os conflitos entre os históricos locais, preservando Android, TJPB, salvamento atômico e foco por disciplina.
