@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="440" viewBox="0 0 1440 440" role="img" aria-labelledby="title desc">
+  <title id="title">Concursinho — um pouco hoje, mais perto amanhã</title>
+  <desc id="desc">Capa em tons de papel e verde, com um livro aberto e os pilares plano, leitura e foco.</desc>
+  <rect width="1440" height="440" rx="28" fill="#f5f1e7"/>
+  <path d="M1090 0h322a28 28 0 0 1 28 28v384a28 28 0 0 1-28 28h-322z" fill="#214e3e"/>
+  <circle cx="1312" cy="76" r="156" fill="none" stroke="#47725e" stroke-width="1"/>
+  <circle cx="1312" cy="76" r="114" fill="none" stroke="#47725e" stroke-width="1"/>
+  <text x="70" y="98" font-family="Georgia,serif" font-size="66" letter-spacing="-2" fill="#214e3e">concursinho.</text>
+  <text x="74" y="151" font-family="Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="4" fill="#a86c32">SEU ESTUDO, COM CONTINUIDADE.</text>
+  <text x="70" y="235" font-family="Georgia,serif" font-size="52" fill="#243c31">Um pouco hoje.</text>
+  <text x="70" y="296" font-family="Georgia,serif" font-size="52" fill="#243c31">Mais perto amanhã.</text>
+  <rect x="74" y="344" width="111" height="37" rx="18" fill="#e2e6db"/>
+  <rect x="198" y="344" width="124" height="37" rx="18" fill="#e2e6db"/>
+  <rect x="335" y="344" width="104" height="37" rx="18" fill="#e2e6db"/>
+  <text x="129" y="368" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#214e3e">PLANO</text>
+  <text x="260" y="368" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#214e3e">LEITURA</text>
+  <text x="387" y="368" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#214e3e">FOCO</text>
+  <g transform="translate(805 97) rotate(-5 185 135)">
+    <rect x="-16" y="14" width="347" height="239" rx="15" fill="#c8cdbb"/>
+    <rect width="347" height="239" rx="15" fill="#fffdf6" stroke="#dce0d1"/>
+    <path d="M174 42v156M51 55c43-12 81-8 123 9 38-17 79-21 123-9v132c-44-12-85-8-123 9-42-17-80-21-123-9z" fill="none" stroke="#315746" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M75 84c24-3 47-1 71 7m-71 17c24-3 47-1 71 7m-71 17c24-3 47-1 71 7m55-48c24-8 47-10 71-7m-71 31c24-8 47-10 71-7m-71 31c24-8 47-10 71-7" fill="none" stroke="#95a58b" stroke-width="3" stroke-linecap="round"/>
+    <path d="M230 20v53l16-10 16 10V20" fill="#c7954f"/>
+  </g>
+  <text x="1263" y="378" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2" fill="#f2e7ce">DESKTOP + ANDROID</text>
+</svg>

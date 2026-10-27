@@ -1,5 +1,12 @@
 # Historico de mudancas
 
+## 2026-10-27 — consolidação e documentação
+
+- Resolvidos os conflitos entre os históricos locais, preservando Android, TJPB, salvamento atômico e foco por disciplina.
+- Removida a duplicação do carregamento de .env produzida pela mesclagem.
+- Renovado o README com capa, capturas reais, configuração, leitura adaptada e instruções de desenvolvimento.
+- Mantida uma única cópia ativa do projeto; o caminho antigo de Downloads passa a apontar para ela.
+
 ## 2026-10-26
 
 - Adicionada aba TJPB 2026 com checklist, busca por assunto, provas e discursiva.
